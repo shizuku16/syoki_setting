@@ -1,0 +1,1 @@
+# syoki_setting
