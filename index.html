@@ -999,17 +999,17 @@ d=Number(document.form2.tai.value)+Number(document.form2[seimeiryoku].value)+Num
 e=Number(document.form2.sin.value)+Number(document.form2[tiryoku].value)+Number(document.form2.tiryokuplus.value)
 f=Number(document.form2.sin.value)+Number(document.form2[seisinryoku].value)+Number(document.form2.seisinryokuplus.value)
 document.form2.kiyoucopy.value=a
-document.form2.kiyou.value=a
+document.form3.kiyou.value=a
 document.form2.binsyoucopy.value=b
-document.form2.binsyou.value=b
+document.form3.binsyou.value=b
 document.form2.kinryokucopy.value=c
-document.form2.kinryoku.value=c
+document.form3.kinryoku.value=c
 document.form2.seimeiryokucopy.value=d
-document.form2.seimeiryoku.value=d
+document.form3.seimeiryoku.value=d
 document.form2.tiryokucopy.value=e
-document.form2.tiryoku.value=e
+document.form3.tiryoku.value=e
 document.form2.seisinryokucopy.value=f
-document.form2.seisinryoku.value=f
+document.form3.seisinryoku.value=f
 }
 
 function sub(){document.getElementById("form2").onsubmit=false}
@@ -1395,6 +1395,8 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <td align="center"><input type="text" name="seisinryokucopy" size="2" tabindex="-1" readonly>
 </tr>
 </table>
+</form>
+<form name="form3">
 <input type="hidden" name="kiyou" >
 <input type="hidden" name="binsyou">
 <input type="hidden" name="kinryoku">
