@@ -1350,39 +1350,39 @@ function sub(){document.getElementById("form2").onsubmit=false}
 </tr>
 <tr>
 <td align="center"><input type=radio name="sentaku" id="sentaku1" onchange="sum(1)" /><label for="sentaku1">候補1</label><br><input type=button name="re" value="ダイスロール" onclick="reroll(1);check()" ></td>
-<td align="center"><input type="text" name="kiyou1" size="2" disabled></td>
-<td align="center"><input type="text" name="binsyou1" size="2" disabled></td>
-<td align="center"><input type="text" name="kinryoku1" size="2" disabled></td>
-<td align="center"><input type="text" name="seimeiryoku1" size="2" disabled></td>
-<td align="center"><input type="text" name="tiryoku1" size="2" disabled></td>
-<td align="center"><input type="text" name="seisinryoku1" size="2" disabled></td>
+<td align="center"><input type="text" name="kiyou1" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="binsyou1" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="kinryoku1" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seimeiryoku1" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="tiryoku1" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seisinryoku1" size="2" tabindex="-1" readonly></td>
 </tr>
 <tr>
 <td align="center"><input type=radio name="sentaku" id="sentaku2"  onchange="sum(2)"/><label for="sentaku2">候補2</label><br><input type=button name="re2" value="ダイスロール"  onclick="reroll(2);check()"></td>
-<td align="center"><input type="text" name="kiyou2" size="2" disabled></td>
-<td align="center"><input type="text" name="binsyou2" size="2" disabled></td>
-<td align="center"><input type="text" name="kinryoku2" size="2" disabled></td>
-<td align="center"><input type="text" name="seimeiryoku2" size="2" disabled></td>
-<td align="center"><input type="text" name="tiryoku2" size="2" disabled></td>
-<td align="center"><input type="text" name="seisinryoku2" size="2" disabled></td>
+<td align="center"><input type="text" name="kiyou2" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="binsyou2" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="kinryoku2" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seimeiryoku2" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="tiryoku2" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seisinryoku2" size="2" tabindex="-1" readonly></td>
 </tr>
 <tr>
 <td align="center"><input type=radio name="sentaku" id="sentaku3"  onchange="sum(3)"/><label for="sentaku3">候補3</label><br><input type=button name="re3" value="ダイスロール" onclick="reroll(3);check()"></td>
-<td align="center"><input type="text" name="kiyou3" size="2" disabled></td>
-<td align="center"><input type="text" name="binsyou3" size="2" disabled></td>
-<td align="center"><input type="text" name="kinryoku3" size="2" disabled></td>
-<td align="center"><input type="text" name="seimeiryoku3" size="2" disabled></td>
-<td align="center"><input type="text" name="tiryoku3" size="2" disabled></td>
-<td align="center"><input type="text" name="seisinryoku3" size="2" disabled></td>
+<td align="center"><input type="text" name="kiyou3" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="binsyou3" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="kinryoku3" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seimeiryoku3" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="tiryoku3" size="2" tabindex="-1" readonly></td>
+<td align="center"><input type="text" name="seisinryoku3" size="2" tabindex="-1" readonly></td>
 </tr>
 <tr id="tokutyou" hidden>
 <td align="center" >種族特徴</td>
-<td align="center"><input type="text" value="0" name="kiyouplus" size="1" disabled>
-<td align="center"><input type="text" value="0" name="binsyouplus" size="1" disabled>
-<td align="center"><input type="text" value="0" name="kinryokuplus" size="1" disabled>
-<td align="center"><input type="text" value="0" name="seimeiryokuplus" size="1" disabled>
-<td align="center"><input type="text" value="0" name="tiryokuplus" size="1" disabled>
-<td align="center"><input type="text" value="0" name="seisinryokuplus" size="1" disabled>
+<td align="center"><input type="text" value="0" name="kiyouplus" size="1" tabindex="-1" readonly>
+<td align="center"><input type="text" value="0" name="binsyouplus" size="1" tabindex="-1" readonly>
+<td align="center"><input type="text" value="0" name="kinryokuplus" size="1" tabindex="-1" readonly>
+<td align="center"><input type="text" value="0" name="seimeiryokuplus" size="1" tabindex="-1" readonlyd>
+<td align="center"><input type="text" value="0" name="tiryokuplus" size="1" tabindex="-1" readonly>
+<td align="center"><input type="text" value="0" name="seisinryokuplus" size="1" tabindex="-1" readonly>
 </tr>
 <tr>
 
@@ -1402,7 +1402,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <input type="hidden" name="tiryoku">
 <input type="hidden" name="seisinryoku">
 <br>
-	testing
+
 <button type="submit" formaction="https://shizuku16.github.io/sw_glow/" formmethod="get"  onfocus="sub()">この値で能力成長を行う</button>
 </form>
 </body>
