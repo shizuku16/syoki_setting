@@ -11,12 +11,12 @@ color:#000000;}
 </style>
 <script type="text/JavaScript">
 
-function roll(a){
+function roll(a,b){
 x=0
 for(i=0;i<a;i++){
 x+=(Math.floor(Math.random()*6)+1)
 }
-y=[x]
+y=[x+b]
 if(x<3.5*a){y.push("1")}else{y.push("0")}
 return y
 }
@@ -949,22 +949,22 @@ var kinryoku="kinryoku"+i
 var seimeiryoku="seimeiryoku"+i
 var tiryoku="tiryoku"+i
 var seisinryoku="seisinryoku"+i
-if(document.form1.syuzoku.value=="人間"){a=roll(2);b=roll(2);c=roll(2);d=roll(2);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="エルフ"){a=roll(2);b=roll(2);c=roll(1);d=roll(2);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="ドワーフ"){a=roll(2)+6;b=roll(1);c=roll(2);d=roll(2);e=roll(1);f=roll(2)+6;}
-if(document.form1.syuzoku.value=="タビット"){a=roll(1);b=roll(1);c=roll(1);d=roll(2);e=roll(2)+6;f=roll(2);}
-if(document.form1.syuzoku.value=="ルーンフォーク"){a=roll(1);b=roll(2);c=roll(2);d=roll(2);e=roll(1);f=roll(2);}
-if(document.form1.syuzoku.value=="ナイトメア"){a=roll(2);b=roll(2);c=roll(1);d=roll(1);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="リカント"){a=roll(1);b=roll(1)+3;c=roll(2);d=roll(2);e=roll(1)+6;f=roll(1);}
-if(document.form1.syuzoku.value=="リルドラケン"){a=roll(1);b=roll(2);c=roll(2);d=roll(2)+6;e=roll(1);f=roll(2);}
-if(document.form1.syuzoku.value=="グラスランナー"){a=roll(2);b=roll(2);c=roll(1);d=roll(2)+6;e=roll(1);f=roll(2)+6;}
-if(document.form1.syuzoku.value=="メリア"){a=roll(1);b=roll(1);c=roll(1);d=roll(2)+6;e=roll(1);f=roll(1);}
-if(document.form1.syuzoku.value=="ティエンス"){a=roll(2);b=roll(2);c=roll(1);d=roll(1)+3;e=roll(2);f=roll(2)+3;}
-if(document.form1.syuzoku.value=="レプラカーン"){a=roll(2);b=roll(1);c=roll(2);d=roll(2);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="アルヴ"){a=roll(1);b=roll(1)+3;c=roll(2)+3;d=roll(2);e=roll(1)+6;f=roll(1);}
-if(document.form1.syuzoku.value=="ウィークリング"){a=roll(2);b=roll(2);c=roll(2);d=roll(2);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="シャドウ"){a=roll(1);b=roll(1);c=roll(2);d=roll(2);e=roll(2);f=roll(2);}
-if(document.form1.syuzoku.value=="ソレイユ"){a=roll(1);b=roll(2);c=roll(1)+6;d=roll(2);e=roll(1);f=roll(2);}
+if(document.form1.syuzoku.value=="人間"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="エルフ"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="ドワーフ"){a=roll(2,6);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(1,0);f=roll(2,6);}
+if(document.form1.syuzoku.value=="タビット"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,0);e=roll(2,6);f=roll(2,0);}
+if(document.form1.syuzoku.value=="ルーンフォーク"){a=roll(1,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(1,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="ナイトメア"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="リカント"){a=roll(1,0);b=roll(1,3);c=roll(2,0);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
+if(document.form1.syuzoku.value=="リルドラケン"){a=roll(1,0);b=roll(2,0);c=roll(2,0);d=roll(2,6);e=roll(1,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="グラスランナー"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(2,6);}
+if(document.form1.syuzoku.value=="メリア"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(1,0);}
+if(document.form1.syuzoku.value=="ティエンス"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,3);e=roll(2,0);f=roll(2,3);}
+if(document.form1.syuzoku.value=="レプラカーン"){a=roll(2,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="アルヴ"){a=roll(1,0);b=roll(1,3);c=roll(2,3);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
+if(document.form1.syuzoku.value=="ウィークリング"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="シャドウ"){a=roll(1,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+if(document.form1.syuzoku.value=="ソレイユ"){a=roll(1,0);b=roll(2,0);c=roll(1,6);d=roll(2,0);e=roll(1,0);f=roll(2,0);}
 document.form2[kiyou].value=a[0]
 document.form2[binsyou].value=b[0]
 document.form2[kinryoku].value=c[0]
