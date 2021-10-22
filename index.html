@@ -10,7 +10,17 @@ color:#000000;}
 
 </style>
 <script type="text/JavaScript">
-
+function uketori(){
+var url=new URL(window.location.href)
+syuzoku=url.searchParams.get("syuzoku")
+umare=url.searchParams.get("umare")
+if(syuzoku=="ningen"){
+	document.form1.syuzoku.value="人間"
+	document.form1.ningenumare.value==umare
+}
+}
+	
+	
 function roll(a,b){
 x=0
 for(i=0;i<a;i++){
@@ -1016,7 +1026,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 </script>
 </head>
 
-<body>
+<body  onload="uketori()">
 <form name="form1">
 種族　<select name="syuzoku" id="syuzoku" onchange="syuzokukettei();check()">
 	<option value="empty"></option>
@@ -1406,6 +1416,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <br>
 
 <button type="submit" formaction="https://shizuku16.github.io/sw_glow/" formmethod="get"  onfocus="sub()">この値で能力成長を行う</button>
+testing
 </form>
 </body>
 </html>
