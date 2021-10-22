@@ -21,8 +21,13 @@ if(syuzoku=="ningen"){
 }
 if(syuzoku=="eruhu"){
 	document.form1.syuzoku.value="エルフ"
-	document.form1.ningenumare.value=umare
+	document.form1.eruhuumare.value=umare
 	eruhu()
+}
+if(syuzoku=="dowahu"){
+	document.form1.syuzoku.value="ドワーフ"
+	document.form1.dowahuumare.value=umare
+	dowahu()
 }
 	
 
@@ -1424,7 +1429,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <br>
 
 <button type="submit" formaction="https://shizuku16.github.io/sw_glow/" formmethod="get"  onfocus="sub()">この値で能力成長を行う</button>
-test now
+testing now
 </form>
 </body>
 </html>
