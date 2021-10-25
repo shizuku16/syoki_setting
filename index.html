@@ -92,7 +92,21 @@ if(syuzoku=="soreiyu"){
 	
 
 }
-	
+
+function yuusya(){
+var i=1
+var s=0
+var nouryoku=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
+
+for(s=0;s<6;s++){
+if(i==6){break}
+if(document.getElementById(`${nouryoku[s]}glow`).checked){
+document.getElementById(`yuusya${i}`).value=document.getElementById(`${nouryoku[s]}copy`).value
+document.getElementById(`nouryoku${i}`).value=nouryoku[s]
+i++
+}
+}
+}
 	
 function roll(a,b){
 x=0
@@ -1424,12 +1438,12 @@ function sub(){document.getElementById("form2").onsubmit=false}
 </tr>
 <tr>
 <td align="center"></td>
-<td align="center">器用</td>
-<td align="center">敏捷</td>
-<td align="center">筋力</td>
-<td align="center">生命力</td>
-<td align="center">知力</td>
-<td align="center">精神力</td>
+<td align="center"><input type="checkbox" class="seityou" name="kiyouglow" id="kiyouglow" onchange="yuusya()"><label for="kiyouglow">器用</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="binsyouglow" id="binsyouglow" onchange="yuusya()"><label for="binsyouglow">敏捷</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="kinryokuglow" id="kinryokuglow" onchange="yuusya()"><label for="kinryokuglow">筋力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="seimeiryokuglow" id="seimeiryokuglow" onchange="yuusya()"><label for="seimeiryokuglow">生命力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="tiryokuglow" id="tiryokuglow" onchange="yuusya()"><label for="tiryokuglow">知力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="seisinryokuglow" id="seisinryokuglow" onchange="yuusya()"><label for="seisinryokuglow">精神力</label></td>
 </tr>
 <tr>
 <td align="center"><input type=radio name="sentaku" id="sentaku1" onchange="sum(1)" /><label for="sentaku1">候補1</label><br><input type=button name="re" value="ダイスロール" onclick="reroll(1);check()" ></td>
@@ -1470,12 +1484,12 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <tr>
 
 <td align="center">能力値</td>
-<td align="center"><input type="text" name="kiyoucopy" size="2" tabindex="-1" readonly>
-<td align="center"><input type="text" name="binsyoucopy" size="2" tabindex="-1" readonly>
-<td align="center"><input type="text" name="kinryokucopy" size="2" tabindex="-1" readonly>
-<td align="center"><input type="text" name="seimeiryokucopy" size="2" tabindex="-1" readonly>
-<td align="center"><input type="text" name="tiryokucopy" size="2" tabindex="-1" readonly>
-<td align="center"><input type="text" name="seisinryokucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="kiyoucopy" name="kiyoucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="binsyoucopy" name="binsyoucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="kinryokucopy" name="kinryokucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="seimeiryokucopy" name="seimeiryokucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="tiryokucopy" name="tiryokucopy" size="2" tabindex="-1" readonly>
+<td align="center"><input type="text" id="seisinryokucopy" name="seisinryokucopy" size="2" tabindex="-1" readonly>
 </tr>
 </table>
 </form>
@@ -1486,9 +1500,22 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <input type="hidden" name="seimeiryoku">
 <input type="hidden" name="tiryoku">
 <input type="hidden" name="seisinryoku">
+
 <br>
 
 <button type="submit" formaction="https://shizuku16.github.io/sw_glow/" formmethod="get"  onfocus="sub()">この値で能力成長を行う</button>
+</form>
+<form name="form4">
+<input type="hidden" value="能力値" id="nouryoku1" name="nouryoku1">
+<input type="hidden" value="能力値" id="nouryoku2" name="nouryoku2">
+<input type="hidden" value="能力値" id="nouryoku3" name="nouryoku3">
+<input type="hidden" value="能力値" id="nouryoku4" name="nouryoku4"><br>
+<input type="hidden" value="0" id="yuusya1" name="yuusya1">
+<input type="hidden" value="0" id="yuusya2" name="yuusya2">
+<input type="hidden" value="0" id="yuusya3" name="yuusya3">
+<input type="hidden" value="0" id="yuusya4" name="yuusya4">
+<button type="submit" formaction="https://shizuku16.github.io/sw_glow2/" formmethod="get" onfocus="yuusya()">test</button>
+
 </form>
 </body>
 </html>
