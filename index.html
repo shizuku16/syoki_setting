@@ -99,12 +99,18 @@ var s=0
 var nouryoku=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
 
 for(s=0;s<6;s++){
-if(i==6){break}
 if(document.getElementById(`${nouryoku[s]}glow`).checked){
+if(i==5){break}
 document.getElementById(`yuusya${i}`).value=document.getElementById(`${nouryoku[s]}copy`).value
 document.getElementById(`nouryoku${i}`).value=nouryoku[s]
 i++
 }
+}
+i=0
+for(s=0;s<6;s++){if(document.getElementById(`${nouryoku[s]}glow`).checked){i++}}
+if(i!=4){
+alert("成長させる能力を4つ選んでください。")
+return false
 }
 }
 	
@@ -1438,12 +1444,12 @@ function sub(){document.getElementById("form2").onsubmit=false}
 </tr>
 <tr>
 <td align="center"></td>
-<td align="center"><input type="checkbox" class="seityou" name="kiyouglow" id="kiyouglow" onchange="yuusya()"><label for="kiyouglow">器用</label></td>
-<td align="center"><input type="checkbox" class="seityou" name="binsyouglow" id="binsyouglow" onchange="yuusya()"><label for="binsyouglow">敏捷</label></td>
-<td align="center"><input type="checkbox" class="seityou" name="kinryokuglow" id="kinryokuglow" onchange="yuusya()"><label for="kinryokuglow">筋力</label></td>
-<td align="center"><input type="checkbox" class="seityou" name="seimeiryokuglow" id="seimeiryokuglow" onchange="yuusya()"><label for="seimeiryokuglow">生命力</label></td>
-<td align="center"><input type="checkbox" class="seityou" name="tiryokuglow" id="tiryokuglow" onchange="yuusya()"><label for="tiryokuglow">知力</label></td>
-<td align="center"><input type="checkbox" class="seityou" name="seisinryokuglow" id="seisinryokuglow" onchange="yuusya()"><label for="seisinryokuglow">精神力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="kiyouglow" id="kiyouglow" tabindex="-1"><label for="kiyouglow">器用</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="binsyouglow" id="binsyouglow" tabindex="-1"><label for="binsyouglow">敏捷</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="kinryokuglow" id="kinryokuglow" tabindex="-1"><label for="kinryokuglow">筋力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="seimeiryokuglow" id="seimeiryokuglow" tabindex="-1"><label for="seimeiryokuglow">生命力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="tiryokuglow" id="tiryokuglow" tabindex="-1"><label for="tiryokuglow">知力</label></td>
+<td align="center"><input type="checkbox" class="seityou" name="seisinryokuglow" id="seisinryokuglow" tabindex="-1"><label for="seisinryokuglow">精神力</label></td>
 </tr>
 <tr>
 <td align="center"><input type=radio name="sentaku" id="sentaku1" onchange="sum(1)" /><label for="sentaku1">候補1</label><br><input type=button name="re" value="ダイスロール" onclick="reroll(1);check()" ></td>
@@ -1501,11 +1507,10 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <input type="hidden" name="tiryoku">
 <input type="hidden" name="seisinryoku">
 
-<br>
-
 <button type="submit" formaction="https://shizuku16.github.io/sw_glow/" formmethod="get"  onfocus="sub()">この値で能力成長を行う</button>
 </form>
-<form name="form4">
+<form name="form4" id="form4" onsubmit="return yuusya()">
+<button type="submit" formaction="https://shizuku16.github.io/sw_glow2/" formmethod="get">チェックした能力で勇者の種成長を行う</button>
 <input type="hidden" value="能力値" id="nouryoku1" name="nouryoku1">
 <input type="hidden" value="能力値" id="nouryoku2" name="nouryoku2">
 <input type="hidden" value="能力値" id="nouryoku3" name="nouryoku3">
@@ -1514,7 +1519,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <input type="hidden" value="0" id="yuusya2" name="yuusya2">
 <input type="hidden" value="0" id="yuusya3" name="yuusya3">
 <input type="hidden" value="0" id="yuusya4" name="yuusya4">
-<button type="submit" formaction="https://shizuku16.github.io/sw_glow2/" formmethod="get" onfocus="yuusya()">test</button>
+
 
 </form>
 </body>
