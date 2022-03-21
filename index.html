@@ -49,7 +49,7 @@ if(syuzoku=="rikanto"){
 	document.form1.rikantoumare.value=umare
 	syuzokukettei()
 }
-if(syuzoku=="gurasuranna"){
+if(syuzoku=="rikanto"){
 	document.form1.syuzoku.value="グラスランナー"
 	document.form1.gurasurannaumare.value=umare
 	syuzokukettei()
@@ -99,9 +99,9 @@ var s=0
 var nouryoku=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
 
 for(s=0;s<6;s++){
+document.getElementById(`yuusya${s+1}`).value=document.getElementById(`${nouryoku[s]}copy`).value
 if(document.getElementById(`${nouryoku[s]}glow`).checked){
 if(i==5){break}
-document.getElementById(`yuusya${i}`).value=document.getElementById(`${nouryoku[s]}copy`).value
 document.getElementById(`nouryoku${i}`).value=nouryoku[s]
 i++
 }
@@ -1149,7 +1149,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 	<option value="ミノタウロス">ミノタウロス</option>
 </select>
 
-<div id="ningenborn" >
+<div id="ningenborn" hidden>
 生まれ　<select name="ningenumare" onchange="ningen();check()">
 	<option value="empty"></option>
 	<option value="madoukisi">魔動機師</option>
@@ -1519,6 +1519,8 @@ function sub(){document.getElementById("form2").onsubmit=false}
 <input type="hidden" value="0" id="yuusya2" name="yuusya2">
 <input type="hidden" value="0" id="yuusya3" name="yuusya3">
 <input type="hidden" value="0" id="yuusya4" name="yuusya4">
+<input type="hidden" value="0" id="yuusya5" name="yuusya5">
+<input type="hidden" value="0" id="yuusya6" name="yuusya6">
 
 
 </form>
