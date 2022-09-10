@@ -130,6 +130,9 @@ return y
 }
 
 function syuzokukettei(){
+document.form2.gi.disabled=true;
+document.form2.tai.disabled=true;
+document.form2.sin.disabled=true;
 if(document.form1.syuzoku.value=="人間")
 {document.getElementById("ningenborn").hidden=false;ningen()}else
 {document.getElementById("ningenborn").hidden=true};
@@ -199,6 +202,9 @@ if(document.form1.syuzoku2.value=="ミノタウロス"){document.form2.kinryokup
 }
 
 function ningen(){
+document.form2.gi.disabled=true;
+document.form2.tai.disabled=true;
+document.form2.sin.disabled=true;
 if(document.form1.ningenumare.value=="madoukisi")
 {document.form2.gi.value=8;
 document.form2.tai.value=4;
@@ -271,6 +277,15 @@ if(document.form1.ningenumare.value=="renkinzyutusi")
 {document.form2.gi.value=7;
 document.form2.tai.value=6;
 document.form2.sin.value=8}
+if(document.form1.ningenumare.value=="boukensya")
+{document.form2.gi.value=0;
+document.form2.tai.value=0;
+document.form2.sin.value=0
+document.form2.gi.disabled=false;
+document.form2.tai.disabled=false;
+document.form2.sin.disabled=false;
+console.log("test ok")}
+
 }
 
 function eruhu(){
@@ -1175,6 +1190,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 	<option value="sinradousi">森羅導師</option>
 	<option value="kisyu">騎手</option>
 	<option value="renkinzyutusi">錬金術師</option>
+	<option value="boukensya">冒険者</option>
 </select>
 </div>
 <div id="eruhuborn" hidden>
