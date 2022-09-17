@@ -10,1155 +10,199 @@ color:#000000;}
 
 </style>
 <script type="text/JavaScript">
-function uketori(){
-var url=new URL(window.location.href)
-syuzoku=url.searchParams.get("syuzoku")
-umare=url.searchParams.get("umare")
-if(syuzoku=="ningen"){
-	document.form1.syuzoku.value="人間"
-	document.form1.ningenumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="eruhu"){
-	document.form1.syuzoku.value="エルフ"
-	document.form1.eruhuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="dowahu"){
-	document.form1.syuzoku.value="ドワーフ"
-	document.form1.dowahuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="tabitto"){
-	document.form1.syuzoku.value="タビット"
-	document.form1.tabittoumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="runfoku"){
-	document.form1.syuzoku.value="ルーンフォーク"
-	document.form1.runfokuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="naitomea"){
-	document.form1.syuzoku.value="ナイトメア"
-	document.form1.naitomeaumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="rikanto"){
-	document.form1.syuzoku.value="リカント"
-	document.form1.rikantoumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="rirudoraken"){
-	document.form1.syuzoku.value="リルドラケン"
-	document.form1.rirudorakenumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="rikanto"){
-	document.form1.syuzoku.value="グラスランナー"
-	document.form1.gurasurannaumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="meria"){
-	document.form1.syuzoku.value="メリア"
-	document.form1.meriaumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="thiensu"){
-	document.form1.syuzoku.value="ティエンス"
-	document.form1.thiensuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="repurakan"){
-	document.form1.syuzoku.value="レプラカーン"
-	document.form1.repurakanumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="aruvu"){
-	document.form1.syuzoku.value="アルヴ"
-	document.form1.aruvuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="wikuringu"){
-	document.form1.syuzoku.value="ウィークリング"
-	document.form1.wikuringuumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="syadou"){
-	document.form1.syuzoku.value="シャドウ"
-	document.form1.syadouumare.value=umare
-	syuzokukettei()
-}
-if(syuzoku=="soreiyu"){
-	document.form1.syuzoku.value="ソレイユ"
-	document.form1.soreiyuumare.value=umare
-	syuzokukettei()
-}
+	var nouryokulist=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
+	var syuzokutable=["ningen","eruhu","dowahu","tabitto","runfoku","naitomea","rikanto","rirudoraken","gurasuranna","meria","thiensu","repurakan","aruvu","wikuringu","syadou","soreiyu"]
+	var jsyuzokutable=["人間","エルフ","ドワーフ","タビット","ルーンフォーク","ナイトメア","リカント","リルドラケン","グラスランナー","メリア","ティエンス","レプラカーン","アルヴ","ウィークリング","シャドウ","ソレイユ"]
+	var ningen=["ningen",["madoukisi","魔動機師","8","4","9"],["madousi","魔導士","6","5","10"],["keisensi","軽戦士","10","7","4"],["ippanzin","一般人","7","7","7"],["youhei","傭兵","7","10","4"],["sinkan","神官","4","8","9"],["soureizyutusi","操霊術師","7","4","10"],["syasyu","射手","9","5","7"],["kensi","剣士","9","6","6"],["kentousi","拳闘士","8","8","5"],["sensi","戦士","7","9","5"],["rentaisi","錬体士","6","8","7"],["kazin","歌人","5","7","9"],["youseitukai","妖精使い","5","6","10"],["mazintukai","魔神使い","6","6","9"],["sinradousi","森羅導師","5","6","10"],["kisyu","騎手","8","8","5"],["renkinzyutusi","錬金術師","7","6","8"],["boukensya","冒険者","0","0","0"],["mazintukaiBM","魔神使い(BM)","3","8","10"],["tentitukaiBM","天地使い(BM)","5","9","7"],["renkinzyutusiBM","錬金術師(BM)","8","5","8"],["odorikoBM","踊り子(BM)","10","6","5"],["kisyuBM","騎手(BM)","6","8","7"],["gunsiBM","軍師(BM)","8","6","7"],["sinradousiBM","森羅同士(BM)","4","7","10"]]
+	var eruhu=["eruhu",["kensi","剣士","12","5","9"],["yakusi","薬師","10","5","11"],["sinkan","神官","9","5","12"],["soureizyutusi","操霊術師","9","4","13"],["mazyutusi","魔術師","10","3","13"],["syasyu","射手","13","5","8"],["rentaisi","錬体士","11","5","10"],["mittei","密偵","11","5","10"],["youseitukai","妖精使い","10","2","14"],["kentousi","拳闘士","11","4","11"],["ginyuusizin","吟遊詩人","9","3","14"],["mazintukai","魔神使い","10","4","12"],["sinradousi","森羅導師","8","5","13"],["kisyu","騎手","12","6","8"],["mazintukaiBM","魔人使い(BM)","9","4","13"],["tentitukaiBM","天地使い(BM)","10","4","12"],["odorikoBM","踊り子(BM)","13","5","8"],["gunsiBM","軍師(BM)","11","4","11"],["sinradousiBM","森羅導師(BM)","10","3","13"]]
+	var dowahu=["dowahu",["syasyu","射手","6","8","6"],["sensi","戦士","4","11","5"],["kentousi","拳闘士","5","10","5"],["sinkan","神官","4","7","9"],["madoukisi","魔動機師","6","7","7"],["gakusya","学者","3","8","9"],["nobuse","野伏","6","9","5"],["rentaisi","錬体士","5","9","6"],["ginyuusizin","吟遊詩人","4","8","8"],["youseitukai","妖精使い","5","6","9"],["sinradousi","森羅導師","4","7","9"],["kisyu","騎手","4","10","6"],["renkinzyutusi","錬金術師","5","9","6"],["tentitukaiBM","天地使い(BM)","6","6","8"],["renkinzyutusiBM","錬金術師(BM)","6","7","7"],["odorikoBM","踊り子(BM)","6","10","4"],["kisyuBM","騎手(BM)","5","9","6"],["gunsiBM","軍師(BM)","5","8","7"]]
+	var tabitto=["tabitto",["soureizyutusi","操霊術師","6","6","10"],["mazyutusi","魔術師","5","7","10"],["gakusya","学者","5","8","9"],["madoukisi","魔動機師","8","5","9"],["madousi","魔導士","5","6","11"],["youseitukai","妖精使い","7","5","10"],["ginyuusizin","吟遊詩人","6","7","9"],["yakusi","薬師","7","6","9"],["mazintukai","魔神使い","6","6","10"],["sinradousi","森羅導師","5","6","11"],["renkinzyutusi","錬金術師","6","7","9"],["mazintukaiBM","魔人使い(BM)","5","6","11"],["tentitukaiBM","天地使い(BM)","5","8","9"],["sinradousiBM","森羅導師(BM)","7","5","10"],["gunsiBM","軍師(BM)","8","6","8"],["renkinzyutusiBM","錬金術師(BM)","7","7","8"]]
+	var runfoku=["runfoku",["gakusya","学者","8","10","8"],["syasyu","射手","12","8","6"],["sensi","戦士","9","12","5"],["madoukisi","魔動機師","12","8","6"],["mazyutusi","魔術師","9","8","9"],["mittei","密偵","12","6","8"],["rentaisi","錬体士","10","8","8"],["keisensi","軽戦士","11","9","6"],["ginyuusizin","吟遊詩人","8","9","9"],["soureizyutusi","操霊術師","7","9","10"],["mazintukai","魔神使い","9","9","8"],["kisyu","騎手","10","11","5"],["renkinzyutusi","錬金術師","10","9","7"],["tentitukaiBM","天地使い(BM)","10","10","6"],["renkinzyutusiBM","錬金術師(BM)","11","8","7"],["odorikoBM","踊り子(BM)","12","9","5"],["kisyuBM","騎手(BM)","9","9","8"],["gunsiBM","軍師(BM)","10","8","8"]]
+	var naitomea=["naitomea",["mazyutusi","魔術師","5","13","12"],["youhei","傭兵","7","15","8"],["keisensi","軽戦士","11","13","6"],["sinkan","神官","6","14","10"],["madoukisi","魔動機師","9","9","12"],["ginyuusizin","吟遊詩人","8","13","9"],["rentaisi","錬体士","9","14","7"],["syasyu","射手","10","10","10"],["nobuse","野伏","9","12","9"],["soureizyutusi","総霊術師","6","11","13"],["mazintukai","魔神使い","7","12","11"],["sinradousi","森羅導師","8","10","12"],["kisyu","騎手","10","13","7"],["renkinzyutusi","錬金術師","11","9","10"],["mazintukaiBM","魔人使い(BM)","7","10","13"],["kisyuBM","騎手(BM)","10","12","8"],["odorikoBM","踊り子","11","12","7"],["gunsiBM","軍師(BM)","9","13","8"],["sinradousiBM","森羅導師(BM)","8","10","12"]]
+	var rikanto=["rikanto",["mittei","密偵","13","5","7"],["sensi","戦士","10","9","6"],["kentousi","拳闘士","11","7","7"],["keisensi","軽戦士","12","6","7"],["nobuse","野伏","9","8","8"],["ginyuusizin","吟遊詩人","8","9","8"],["syasyu","射手","11","8","6"],["rentaisi","錬体士","10","8","7"],["gakusya","学者","10","7","8"],["sinkan","神官","9","7","9"],["sinradousi","森羅導師","9","7","9"],["kisyu","騎手","11","8","6"],["tentitukaiBM","天地使い(BM)","10","7","8"],["renkinzyutusiBM","錬金術師(BM)","12","7","6"],["odorikoBM","踊り子(BM)","13","6","6"],["kisyuBM","騎手(BM)","10","8","7"],["gunsiBM","軍師(BM)","9","9","7"]]
+	var rirudoraken=["rirudoraken",["nobuse","野伏","6","12","7"],["kentousi","拳闘士","6","13","6"],["sensi","戦士","5","14","6"],["syounin","商人","5","11","9"],["sinkan","神官","4","13","8"],["syasyu","射手","7","12","6"],["keisensi","軽戦士","6","11","8"],["rentaisi","錬体士","5","12","8"],["mahoutukai","魔法使い","4","12","9"],["youseitukai","妖精使い","3","12","10"],["mazintukai","魔神使い","5","12","8"],["sinradousi","森羅導師","4","12","9"],["kisyu","騎手","6","13","6"],["renkinzyutusi","錬金術師","5","13","7"],["tentitukaiBM","天地使い(BM)","4","13","8"],["renkinzyutusiBM","錬金術師(BM)","5","13","7"],["odorikoBM","踊り子(BM)","6","14","5"],["gunsiBM","軍師(BM)","5","12","8"],["sinradousiBM","森羅同士(BM)","5","11","9"]]
+	var gurasuranna=["gurasuranna",["nusutto","盗っ人","13","0","12"],["keisensi","軽戦士","14","1","10"],["nobuse","野伏","12","1","12"],["syasyu","射手","14","0","11"],["syumizin","趣味人","12","0","13"],["gakusya","学者","11","1","13"],["kentousi","拳闘士","14","2","9"],["tabibito","旅人","11","2","12"],["mittei","密偵","15","0","10"],["ginyuusizin","吟遊詩人","12","0","13"],["kisyu","騎手","13","1","11"],["renkinzyutusi","錬金術師","13","0","12"],["tentitukaiBM","天地使い(BM)","11","1","13"],["renkinzyutusiBM","錬金術師(BM)","12","1","12"],["odorikoBM","踊り子(BM)","13","1","11"],["kisyuBM","騎手(BM)","12","0","13"],["gunsiBM","軍師(BM)","11","1","13"]]
+	var meria=["meria",["keisensi","軽戦士","14","1","10"],["nobuse","野伏","9","8","12"],["sinkan","神官","8","8","13"],["youseitukai","妖精使い","8","7","14"],["mazyutusi","魔術師","8","6","15"],["soureizyutusi","操霊術師","7","6","16"],["syasyu","射手","10","7","12"],["keisensi","軽戦士","10","8","11"],["madousi","魔導士","8","5","16"],["ginyuusizin","吟遊詩人","7","7","15"],["rentaisi","錬体士","9","9","11"],["mazintukai","魔神使い","7","7","15"],["sinradousi","森羅導師","6","7","16"],["kisyu","騎手","8","9","12"],["renkinzyutusi","錬金術師","9","7","13"],["mazintukaiBM","魔神使い(BM)","7","8","14"],["tentitukaiBM","天地使い(BM)","8","9","12"],["odorikoBM","踊り子(BM)","9","8","12"],["gunsiBM","軍師(BM)","8","8","13"],["sinradousiBM","森羅導師(BM)","7","7","15"]]
+	var thiensu=["thiensu",["kisyu","騎手","10","11","7"],["kentousi","拳闘士","9","13","6"],["sensi","戦士","8","12","8"],["sinkan","神官","7","12","9"],["mahoutukai","魔法使い","6","12","10"],["syasyu","射手","11","12","5"],["mittei","密偵","10","10","8"],["mahousensi","魔法戦士","9","11","8"],["youseitukai","妖精使い","7","11","10"],["gakusya","学者","8","11","9"],["mazintukai","魔神使い","7","12","9"],["sinradousi","森羅導師","8","10","10"],["renkinzyutusi","錬金術師","9","11","8"],["mazintukaiBM","魔神使い(BM)","7","11","10"],["tentidukaiBM","天地使い(BM)","8","11","9"],["odorikoBM","踊り子(BM)","10","13","5"],["gunsiBM","軍師(BM)","9","11","8"],["sinradousiBM","森羅導師(BM)","6","12","10"]]
+	var repurakan=["repurakan",["keisensi","軽戦士","13","5","5"],["syasyu","射手","12","6","5"],["mittei","密偵","14","4","5"],["youseitukai","妖精使い","11","4","8"],["renkinzyutusi","錬金術師","11","5","7"],["nobuse","野伏","12","5","6"],["syumizin","趣味人","13","4","6"],["madoukisi","魔動機師","12","4","7"],["sinkan","神官","10","5","8"],["madousi","魔導士","11","3","9"],["mahoutukai","魔神使い","12","4","7"],["sinradousi","森羅導師","11","4","8"],["kisyu","騎手","13","6","4"],["mazintukaiBM","魔神使い(BM)","11","5","9"],["tentitukaiBM","天地使い(BM)","10","8","7"],["odorikoBM","踊り子(BM)","13","7","5"],["renkinzyutusiBM","錬金術師(BM)","14","6","5"],["sinradousiBM","森羅導師(BM)","12","5","8"]]
+	var aruvu=["aruvu",["mittei","密偵","12","5","8"],["keisensi","軽戦士","12","6","7"],["mahoutukai","魔法使い","9","5","11"],["sinkan","神官","10","6","9"],["gakusya","学者","10","5","10"],["syasyu","射手","13","4","8"],["kentousi","拳闘士","11","7","7"],["soureizyutusi","操霊術師","9","4","12"],["mazintukai","魔神使い","9","6","10"],["madoukisi","魔動機師","9","7","9"],["tentitukaiBM","天地使い(BM)","11","6","8"],["odorikoBM","踊り子(BM)","13","5","7"],["gunsiBM","軍師(BM)","10","6","9"]]
+	var wikuringu=["wikuringu",["haiseki","斥候","10","7","6"],["keisensi","軽戦士","9","8","6"],["sensi","戦士","8","10","5"],["sinkan","神官","7","9","7"],["mahoutukai","魔法使い","7","8","8"],["rentaisi","錬体士","8","8","7"],["syasyu","射手","10","8","5"],["kentousi","拳闘士","9","9","5"],["sinradousi","森羅導師","7","7","9"],["mazintukai","魔神使い","7","8","8"],["tentitukaiBM","天地使い(BM)","7","8","8"],["odorikoBM","踊り子(BM)","10","8","5"],["gunsiBM","軍師(BM)","9","7","7"]]
+	var syadou=["syadou",["nobuse","野伏","15","6","6"],["kensi","剣士","17","7","3"],["mittei","密偵","16","7","4"],["kentousi","拳闘士","14","8","5"],["sensi","戦士","15","9","3"],["madoukisi","魔動機師","17","5","5"],["syasyu","射手","18","6","3"],["rentaisi","錬体士","16","6","5"],["renkinzyutusi","錬金術師","14","8","5"],["kisyu","騎手","13","7","7"],["tentitukaiBM","天地使い(BM)","14","6","7"],["odorikoBM","踊り子(BM)","17","7","3"],["gunsiBM","軍師(BM)","15","8","4"]]
+	var soreiyu=["soreiyu",["sinkan","神官","9","13","4"],["keisensi","軽戦士","12","12","2"],["sensi","戦士","10","15","1"],["kentousi","拳闘士","12","14","0"],["nobuse","野伏","10","13","3"],["syasyu","射手","11","14","1"],["kisyu","騎手","11","13","2"],["renkinzyutusi","錬金術師","10","11","5"],["syumizin","趣味人","11","11","4"],["haiseki","斥候","12","11","3"],["tentitukaiBM","天地使い(BM)","10","12","4"],["odorikoBM","踊り子(BM)","12","13","1"],["gunsiBM","軍師(BM)","11","12","3"]]
+	var table=[ningen,eruhu,dowahu,tabitto,runfoku,naitomea,rikanto,rirudoraken,gurasuranna,meria,thiensu,repurakan,aruvu,wikuringu,syadou,soreiyu]
+
+	var funclist={}
+	for(i=0;i<table.length;i++){
+		var funcstr="document.form2.gi.disabled=true;\ndocument.form2.tai.disabled=true;\ndocument.form2.sin.disabled=true;\n"
+		for(j=1;j<table[i].length;j++){
+			funcstr+="if(document.form1."+table[i][0]+"umare.value==\""+table[i][j][0]+"\"){document.form2.gi.value="+table[i][j][2]+";document.form2.tai.value="+table[i][j][3]+";document.form2.sin.value="+table[i][j][4]+";"
+			if(i==0&&j==table[i].length-1) funcstr+="document.form2.gi.disabled=false;document.form2.tai.disabled=false;document.form2.sin.disabled=false;"
+			funcstr+="}\n"
+		}
+		funclist[table[i][0]]=new Function(funcstr)
+	}
+
+	function load() {
+		var syuzoku=document.getElementById("syuzoku")
+
+		var string="<option id=\"empty\" value=\"empty\"></option>"
+		for(var i=0;i<syuzokutable.length;i++)
+			string+="<option id="+syuzokutable[i]+" value="+jsyuzokutable[i]+">"+jsyuzokutable[i]+"</option>"
+		syuzoku.insertAdjacentHTML("beforeend",string)
+
+		for(i=0;i<table.length;i++){
+			var string="<span id=\""+table[i][0]+"born\" hidden><select name=\""+table[i][0]+"umare\" id=\""+table[i][0]+"umare\" onchange=\"change(this);check()\"><option value=\"empty\"></option>"
+			var position=document.getElementById("bornlist")
+			for(j=1;j<table[i].length;j++)
+				string+="<option id="+table[i][j][0]+" value="+table[i][j][0]+">"+table[i][j][1]+"</option>"
+			string+="</select></span>"
+			position.insertAdjacentHTML("beforeend",string)
+		}
+		console.log(position)
+	}
+
+	function uketori() {
+		var url = new URL(window.location.href);
+		var syuzoku = url.searchParams.get("syuzoku");
+		var umare = url.searchParams.get("umare");
+
+		for(i=0;i<syuzokutable.length;i++)
+			if(syuzoku==syuzokutable[i]){
+				document.form1.syuzoku.value =jsyuzokutable[i]
+				document.getElementById(syuzokutable[i]+"umare").value=umare
+				syuzokukettei()
+			}
+	}
+
+	function yuusya(){
+		var i=1
+		var s=0
+
+		for(s=0;s<6;s++){
+			document.getElementById(`yuusya${s+1}`).value=document.getElementById(`${nouryoku[s]}copy`).value
+			if(document.getElementById(`${nouryokulist[s]}glow`).checked){
+				if(i==5)break
+				document.getElementById(`nouryoku${i}`).value=nouryoku[s]
+				i++
+			}
+		}
+		i=0
+		for(s=0;s<6;s++){if(document.getElementById(`${nouryoku[s]}glow`).checked) i++}
+		if(i!=4){
+		alert("成長させる能力を4つ選んでください。")
+		return false
+		}
+	}
 	
+	function roll(a,b){
+		x=0
+		for(i=0;i<a;i++) x+=(Math.floor(Math.random()*6)+1)
+		y=[x+b]
+		if(x<3.5*a) y.push("1") 
+		else y.push("0")
+		return y
+	}
 
-}
+	function syuzokukettei(){
+		console.log(funclist.ningen)
+		document.form2.gi.disabled=true;
+		document.form2.tai.disabled=true;
+		document.form2.sin.disabled=true;
 
-function yuusya(){
-var i=1
-var s=0
-var nouryoku=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
+		for(i=0;i<syuzokutable.length;i++){
+			if(document.form1.syuzoku.value==jsyuzokutable[i]){
+				if(document.form1.syuzoku.value=="ウィークリング") continue
+				document.getElementById(syuzokutable[i]+"born").hidden=false
+				funclist[syuzokutable[i]]()
+			}else document.getElementById(syuzokutable[i]+"born").hidden=true
+		}
+		if(document.form1.syuzoku.value=="ウィークリング"){
+			funclist.wikuringu();
+			document.getElementById("tokutyou").hidden=false;
+			document.form1.syuzoku2.hidden=false;
+			document.getElementById("wikuringuborn").hidden=false;
+		}else{
+			document.form1.syuzoku2.hidden=true;
+			document.getElementById("tokutyou").hidden=true;
+			document.getElementById("wikuringuborn").hidden=true;
+			document.form2.binsyouplus.value=0;
+			document.form2.tiryokuplus.value=0;
+			document.form2.kiyouplus.value=0;
+			document.form2.seisinryokuplus.value=0
+		}
+	}
 
-for(s=0;s<6;s++){
-document.getElementById(`yuusya${s+1}`).value=document.getElementById(`${nouryoku[s]}copy`).value
-if(document.getElementById(`${nouryoku[s]}glow`).checked){
-if(i==5){break}
-document.getElementById(`nouryoku${i}`).value=nouryoku[s]
-i++
-}
-}
-i=0
-for(s=0;s<6;s++){if(document.getElementById(`${nouryoku[s]}glow`).checked){i++}}
-if(i!=4){
-alert("成長させる能力を4つ選んでください。")
-return false
-}
-}
-	
-function roll(a,b){
-x=0
-for(i=0;i<a;i++){
-x+=(Math.floor(Math.random()*6)+1)
-}
-y=[x+b]
-if(x<3.5*a){y.push("1")}else{y.push("0")}
-return y
-}
+	function change(s){
+		var syuzoku=s.id.replace("umare","")
+		funclist[syuzoku]()
+	}
 
-function syuzokukettei(){
-document.form2.gi.disabled=true;
-document.form2.tai.disabled=true;
-document.form2.sin.disabled=true;
-if(document.form1.syuzoku.value=="人間")
-{document.getElementById("ningenborn").hidden=false;ningen()}else
-{document.getElementById("ningenborn").hidden=true};
-if(document.form1.syuzoku.value=="エルフ")
-{document.getElementById("eruhuborn").hidden=false;eruhu()}else
-{document.getElementById("eruhuborn").hidden=true};
-if(document.form1.syuzoku.value=="ドワーフ")
-{document.getElementById("dowahuborn").hidden=false;dowahu()}else
-{document.getElementById("dowahuborn").hidden=true};
-if(document.form1.syuzoku.value=="タビット")
-{document.getElementById("tabittoborn").hidden=false;tabitto()}else
-{document.getElementById("tabittoborn").hidden=true};
-if(document.form1.syuzoku.value=="ルーンフォーク")
-{document.getElementById("runfokuborn").hidden=false;runfoku()}else
-{document.getElementById("runfokuborn").hidden=true};
-if(document.form1.syuzoku.value=="ナイトメア")
-{document.getElementById("naitomeaborn").hidden=false;naitomea()}else
-{document.getElementById("naitomeaborn").hidden=true};
-if(document.form1.syuzoku.value=="リカント")
-{document.getElementById("rikantoborn").hidden=false;rikanto()}else
-{document.getElementById("rikantoborn").hidden=true};
-if(document.form1.syuzoku.value=="リルドラケン")
-{document.getElementById("rirudorakenborn").hidden=false;rirudoraken()}else
-{document.getElementById("rirudorakenborn").hidden=true};
-if(document.form1.syuzoku.value=="グラスランナー")
-{document.getElementById("gurasurannaborn").hidden=false;gurasuranna()}else
-{document.getElementById("gurasurannaborn").hidden=true};
-if(document.form1.syuzoku.value=="メリア")
-{document.getElementById("meriaborn").hidden=false;meria()}else
-{document.getElementById("meriaborn").hidden=true};
-if(document.form1.syuzoku.value=="ティエンス")
-{document.getElementById("thiensuborn").hidden=false;thiensu()}else
-{document.getElementById("thiensuborn").hidden=true};
-if(document.form1.syuzoku.value=="レプラカーン")
-{document.getElementById("repurakanborn").hidden=false;repurakan()}else
-{document.getElementById("repurakanborn").hidden=true};
-if(document.form1.syuzoku.value=="アルヴ")
-{document.getElementById("aruvuborn").hidden=false;aruvu()}else
-{document.getElementById("aruvuborn").hidden=true};
-if(document.form1.syuzoku.value=="シャドウ")
-{document.getElementById("syadouborn").hidden=false;syadou()}else
-{document.getElementById("syadouborn").hidden=true};
-if(document.form1.syuzoku.value=="ソレイユ")
-{document.getElementById("soreiyuborn").hidden=false;soreiyu()}else
-{document.getElementById("soreiyuborn").hidden=true};
-if(document.form1.syuzoku.value=="ウィークリング"){
-wikuringu();
-document.getElementById("tokutyou").hidden=false;
-document.form1.syuzoku2.hidden=false;
-document.getElementById("wikuringuborn").hidden=false;}
-else{document.form1.syuzoku2.hidden=true;
-document.getElementById("tokutyou").hidden=true;
-document.getElementById("wikuringuborn").hidden=true;
-document.form2.binsyouplus.value=0;
-document.form2.tiryokuplus.value=0;
-document.form2.kiyouplus.value=0;
-document.form2.seisinuplus.value=0}
+	function wikuup(){
+		if(document.form1.syuzoku2.value=="ガルーダ"){document.form2.binsyouplus.value=3}else{document.form2.binsyouplus.value=0}
+		if(document.form1.syuzoku2.value=="タンノズ"){document.form2.seisinryokuplus.value=3}else{document.form2.seisinryokuplus.value=0}
+		if(document.form1.syuzoku2.value=="バジリスク"){document.form2.tiryokuplus.value=3}else{document.form2.tiryokuplus.value=0}
+		if(document.form1.syuzoku2.value=="ミノタウロス"){document.form2.kinryokuplus.value=3}else{document.form2.kinryokuplus.value=0}
+	}
 
+	function reroll(i){
+		var kiyou="kiyou"+i
+		var binsyou="binsyou"+i
+		var kinryoku="kinryoku"+i
+		var seimeiryoku="seimeiryoku"+i
+		var tiryoku="tiryoku"+i
+		var seisinryoku="seisinryoku"+i
+		if(document.form1.syuzoku.value=="人間"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="エルフ"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="ドワーフ"){a=roll(2,6);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(1,0);f=roll(2,6);}
+		if(document.form1.syuzoku.value=="タビット"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,0);e=roll(2,6);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="ルーンフォーク"){a=roll(2,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(1,0);}
+		if(document.form1.syuzoku.value=="ナイトメア"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="リカント"){a=roll(1,0);b=roll(1,3);c=roll(2,0);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
+		if(document.form1.syuzoku.value=="リルドラケン"){a=roll(1,0);b=roll(2,0);c=roll(2,0);d=roll(2,6);e=roll(1,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="グラスランナー"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(2,6);}
+		if(document.form1.syuzoku.value=="メリア"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(1,0);}
+		if(document.form1.syuzoku.value=="ティエンス"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,3);e=roll(2,0);f=roll(2,3);}
+		if(document.form1.syuzoku.value=="レプラカーン"){a=roll(2,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="アルヴ"){a=roll(1,0);b=roll(1,3);c=roll(2,3);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
+		if(document.form1.syuzoku.value=="ウィークリング"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="シャドウ"){a=roll(1,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
+		if(document.form1.syuzoku.value=="ソレイユ"){a=roll(1,0);b=roll(2,0);c=roll(1,6);d=roll(2,0);e=roll(1,0);f=roll(2,0);}
+		document.form2[kiyou].value=a[0]
+		document.form2[binsyou].value=b[0]
+		document.form2[kinryoku].value=c[0]
+		document.form2[seimeiryoku].value=d[0]
+		document.form2[tiryoku].value=e[0]
+		document.form2[seisinryoku].value=f[0]
+		if(a[1]==1){document.form2[kiyou].style.backgroundColor="#ffc0cb"}else{document.form2[kiyou].style.backgroundColor="#ffffff"}
+		if(b[1]==1){document.form2[binsyou].style.backgroundColor="#ffc0cb"}else{document.form2[binsyou].style.backgroundColor="#ffffff"}
+		if(c[1]==1){document.form2[kinryoku].style.backgroundColor="#ffc0cb"}else{document.form2[kinryoku].style.backgroundColor="#ffffff"}
+		if(d[1]==1){document.form2[seimeiryoku].style.backgroundColor="#ffc0cb"}else{document.form2[seimeiryoku].style.backgroundColor="#ffffff"}
+		if(e[1]==1){document.form2[tiryoku].style.backgroundColor="#ffc0cb"}else{document.form2[tiryoku].style.backgroundColor="#ffffff"}
+		if(f[1]==1){document.form2[seisinryoku].style.backgroundColor="#ffc0cb"}else{document.form2[seisinryoku].style.backgroundColor="#ffffff"}
+	}
 
-}
+	function check(){
+		if(document.form2.sentaku1.checked) sum(1)
+		if(document.form2.sentaku2.checked) sum(2)
+		if(document.form2.sentaku3.checked) sum(3)
+	}
 
-function wikuup(){
-if(document.form1.syuzoku2.value=="ガルーダ"){document.form2.binsyouplus.value=3}else{document.form2.binsyouplus.value=0}
-if(document.form1.syuzoku2.value=="タンノズ"){document.form2.seisinryokuplus.value=3}else{document.form2.seisinryokuplus.value=0}
-if(document.form1.syuzoku2.value=="バジリスク"){document.form2.tiryokuplus.value=3}else{document.form2.tiryokuplus.value=0}
-if(document.form1.syuzoku2.value=="ミノタウロス"){document.form2.kinryokuplus.value=3}else{document.form2.kinryokuplus.value=0}
-}
+	function sum(i){
+		var basenouryou=["gi","tai","sin"]
+		for(j=0;j<6;j++){
+			a=Number(document.form2[basenouryou[Math.floor(j/2)]].value)+Number(document.form2[nouryokulist[j]+i].value)+Number(document.form2[nouryokulist[j]+"plus"].value)
+			document.form2[nouryokulist[j]+"copy"].value=a
+			document.form3[nouryokulist[j]].value=a
+		}
+	}
 
-function ningen(){
-document.form2.gi.disabled=true;
-document.form2.tai.disabled=true;
-document.form2.sin.disabled=true;
-if(document.form1.ningenumare.value=="madoukisi")
-{document.form2.gi.value=8;
-document.form2.tai.value=4;
-document.form2.sin.value=9}
-if(document.form1.ningenumare.value=="mazyutusi")
-{document.form2.gi.value=6;
-document.form2.tai.value=5;
-document.form2.sin.value=10}
-if(document.form1.ningenumare.value=="keisensi")
-{document.form2.gi.value=10;
-document.form2.tai.value=7;
-document.form2.sin.value=4}
-if(document.form1.ningenumare.value=="ippanzin")
-{document.form2.gi.value=7;
-document.form2.tai.value=7;
-document.form2.sin.value=7}
-if(document.form1.ningenumare.value=="youhei")
-{document.form2.gi.value=7;
-document.form2.tai.value=10;
-document.form2.sin.value=4}
-if(document.form1.ningenumare.value=="sinkan")
-{document.form2.gi.value=4;
-document.form2.tai.value=8;
-document.form2.sin.value=9}
-if(document.form1.ningenumare.value=="soureizyutusi")
-{document.form2.gi.value=7;
-document.form2.tai.value=4;
-document.form2.sin.value=10}
-if(document.form1.ningenumare.value=="syasyu")
-{document.form2.gi.value=9;
-document.form2.tai.value=5;
-document.form2.sin.value=7}
-if(document.form1.ningenumare.value=="kensi")
-{document.form2.gi.value=9;
-document.form2.tai.value=6;
-document.form2.sin.value=6}
-if(document.form1.ningenumare.value=="kentousi")
-{document.form2.gi.value=8;
-document.form2.tai.value=8;
-document.form2.sin.value=5}
-if(document.form1.ningenumare.value=="sensi")
-{document.form2.gi.value=7;
-document.form2.tai.value=9;
-document.form2.sin.value=5}
-if(document.form1.ningenumare.value=="rentaisi")
-{document.form2.gi.value=6;
-document.form2.tai.value=8;
-document.form2.sin.value=7}
-if(document.form1.ningenumare.value=="kazin")
-{document.form2.gi.value=5;
-document.form2.tai.value=7;
-document.form2.sin.value=9}
-if(document.form1.ningenumare.value=="youseitukai")
-{document.form2.gi.value=5;
-document.form2.tai.value=6;
-document.form2.sin.value=10}
-if(document.form1.ningenumare.value=="mazintukai")
-{document.form2.gi.value=6;
-document.form2.tai.value=6;
-document.form2.sin.value=9}
-if(document.form1.ningenumare.value=="sinradousi")
-{document.form2.gi.value=5;
-document.form2.tai.value=6;
-document.form2.sin.value=10}
-if(document.form1.ningenumare.value=="kisyu")
-{document.form2.gi.value=8;
-document.form2.tai.value=8;
-document.form2.sin.value=5}
-if(document.form1.ningenumare.value=="renkinzyutusi")
-{document.form2.gi.value=7;
-document.form2.tai.value=6;
-document.form2.sin.value=8}
-if(document.form1.ningenumare.value=="boukensya")
-{document.form2.gi.value=0;
-document.form2.tai.value=0;
-document.form2.sin.value=0
-document.form2.gi.disabled=false;
-document.form2.tai.disabled=false;
-document.form2.sin.disabled=false;
-console.log("test ok")}
-
-}
-
-function eruhu(){
-if(document.form1.eruhuumare.value=="kensi")
-{document.form2.gi.value=12
-document.form2.tai.value=5
-document.form2.sin.value=9}
-if(document.form1.eruhuumare.value=="yakusi")
-{document.form2.gi.value=10
-document.form2.tai.value=5
-document.form2.sin.value=11}
-if(document.form1.eruhuumare.value=="sinkan")
-{document.form2.gi.value=9
-document.form2.tai.value=5
-document.form2.sin.value=12}
-if(document.form1.eruhuumare.value=="soureizyutusi")
-{document.form2.gi.value=9
-document.form2.tai.value=4
-document.form2.sin.value=13}
-if(document.form1.eruhuumare.value=="mazyutusi")
-{document.form2.gi.value=10
-document.form2.tai.value=3
-document.form2.sin.value=13}
-if(document.form1.eruhuumare.value=="syasyu")
-{document.form2.gi.value=13
-document.form2.tai.value=5
-document.form2.sin.value=8}
-if(document.form1.eruhuumare.value=="rentaisi")
-{document.form2.gi.value=11
-document.form2.tai.value=5
-document.form2.sin.value=10}
-if(document.form1.eruhuumare.value=="mittei")
-{document.form2.gi.value=12
-document.form2.tai.value=4
-document.form2.sin.value=10}
-if(document.form1.eruhuumare.value=="youseitukai")
-{document.form2.gi.value=10
-document.form2.tai.value=2
-document.form2.sin.value=14}
-if(document.form1.eruhuumare.value=="kentousi")
-{document.form2.gi.value=11
-document.form2.tai.value=4
-document.form2.sin.value=11}
-if(document.form1.eruhuumare.value=="ginyuusizin")
-{document.form2.gi.value=9
-document.form2.tai.value=3
-document.form2.sin.value=14}
-if(document.form1.eruhuumare.value=="mazintukai")
-{document.form2.gi.value=10
-document.form2.tai.value=4
-document.form2.sin.value=12}
-if(document.form1.eruhuumare.value=="sinradousi")
-{document.form2.gi.value=8
-document.form2.tai.value=5
-document.form2.sin.value=13}
-if(document.form1.eruhuumare.value=="kisyu")
-{document.form2.gi.value=12
-document.form2.tai.value=6
-document.form2.sin.value=8}
-}
-
-function dowahu(){
-if(document.form1.dowahuumare.value=="syasyu")
-{document.form2.gi.value=6
-document.form2.tai.value=8
-document.form2.sin.value=6}
-if(document.form1.dowahuumare.value=="sensi")
-{document.form2.gi.value=4
-document.form2.tai.value=11
-document.form2.sin.value=5}
-if(document.form1.dowahuumare.value=="kentousi")
-{document.form2.gi.value=5
-document.form2.tai.value=10
-document.form2.sin.value=5}
-if(document.form1.dowahuumare.value=="sinkan")
-{document.form2.gi.value=4
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.dowahuumare.value=="madoukisi")
-{document.form2.gi.value=6
-document.form2.tai.value=7
-document.form2.sin.value=7}
-if(document.form1.dowahuumare.value=="gakusya")
-{document.form2.gi.value=3
-document.form2.tai.value=8
-document.form2.sin.value=9}
-if(document.form1.dowahuumare.value=="nobuse")
-{document.form2.gi.value=6
-document.form2.tai.value=9
-document.form2.sin.value=5}
-if(document.form1.dowahuumare.value=="rentaisi")
-{document.form2.gi.value=5
-document.form2.tai.value=9
-document.form2.sin.value=6}
-if(document.form1.dowahuumare.value=="ginyuusizin")
-{document.form2.gi.value=4
-document.form2.tai.value=8
-document.form2.sin.value=8}
-if(document.form1.dowahuumare.value=="youseitukai")
-{document.form2.gi.value=5
-document.form2.tai.value=6
-document.form2.sin.value=9}
-if(document.form1.dowahuumare.value=="sinradousi")
-{document.form2.gi.value=4
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.dowahuumare.value=="kisyu")
-{document.form2.gi.value=4
-document.form2.tai.value=10
-document.form2.sin.value=6}
-if(document.form1.dowahuumare.value=="renkinzyutusi")
-{document.form2.gi.value=5
-document.form2.tai.value=9
-document.form2.sin.value=9}
-}
-
-function tabitto(){
-if(document.form1.tabittoumare.value=="soureizyutusi")
-{document.form2.gi.value=6
-document.form2.tai.value=6
-document.form2.sin.value=10}
-if(document.form1.tabittoumare.value=="mazyutusi")
-{document.form2.gi.value=5
-document.form2.tai.value=7
-document.form2.sin.value=10}
-if(document.form1.tabittoumare.value=="gakusya")
-{document.form2.gi.value=5
-document.form2.tai.value=8
-document.form2.sin.value=9}
-if(document.form1.tabittoumare.value=="madoukisi")
-{document.form2.gi.value=8
-document.form2.tai.value=5
-document.form2.sin.value=9}
-if(document.form1.tabittoumare.value=="madousi")
-{document.form2.gi.value=5
-document.form2.tai.value=6
-document.form2.sin.value=11}
-if(document.form1.tabittoumare.value=="youseitukai")
-{document.form2.gi.value=7
-document.form2.tai.value=5
-document.form2.sin.value=10}
-if(document.form1.tabittoumare.value=="ginyuusizin")
-{document.form2.gi.value=6
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.tabittoumare.value=="yakusi")
-{document.form2.gi.value=7
-document.form2.tai.value=6
-document.form2.sin.value=9}
-if(document.form1.tabittoumare.value=="mazintukai")
-{document.form2.gi.value=6
-document.form2.tai.value=6
-document.form2.sin.value=10}
-if(document.form1.tabittoumare.value=="sinradousi")
-{document.form2.gi.value=5
-document.form2.tai.value=6
-document.form2.sin.value=11}
-if(document.form1.tabittoumare.value=="renkinzyutusi")
-{document.form2.gi.value=6
-document.form2.tai.value=7
-document.form2.sin.value=9}
-}
-
-function runfoku(){
-if(document.form1.runfokuumare.value=="gakusya")
-{document.form2.gi.value=8
-document.form2.tai.value=10
-document.form2.sin.value=8}
-if(document.form1.runfokuumare.value=="syasyu")
-{document.form2.gi.value=12
-document.form2.tai.value=8
-document.form2.sin.value=6}
-if(document.form1.runfokuumare.value=="sensi")
-{document.form2.gi.value=9
-document.form2.tai.value=12
-document.form2.sin.value=5}
-if(document.form1.runfokuumare.value=="madoukisi")
-{document.form2.gi.value=12
-document.form2.tai.value=8
-document.form2.sin.value=6}
-if(document.form1.runfokuumare.value=="mazyutusi")
-{document.form2.gi.value=9
-document.form2.tai.value=8
-document.form2.sin.value=9}
-if(document.form1.runfokuumare.value=="mittei")
-{document.form2.gi.value=12
-document.form2.tai.value=6
-document.form2.sin.value=8}
-if(document.form1.runfokuumare.value=="rentaisi")
-{document.form2.gi.value=10
-document.form2.tai.value=8
-document.form2.sin.value=8}
-if(document.form1.runfokuumare.value=="keisensi")
-{document.form2.gi.value=11
-document.form2.tai.value=9
-document.form2.sin.value=6}
-if(document.form1.runfokuumare.value=="ginyuusizin")
-{document.form2.gi.value=8
-document.form2.tai.value=9
-document.form2.sin.value=9}
-if(document.form1.runfokuumare.value=="soureizyutusi")
-{document.form2.gi.value=7
-document.form2.tai.value=9
-document.form2.sin.value=10}
-if(document.form1.runfokuumare.value=="mazintukai")
-{document.form2.gi.value=9
-document.form2.tai.value=9
-document.form2.sin.value=8}
-if(document.form1.runfokuumare.value=="kisyu")
-{document.form2.gi.value=10
-document.form2.tai.value=11
-document.form2.sin.value=5}
-if(document.form1.runfokuumare.value=="renkinzyutusi")
-{document.form2.gi.value=10
-document.form2.tai.value=9
-document.form2.sin.value=7}
-}
-
-function naitomea(){
-if(document.form1.naitomeaumare.value=="mazyutusi")
-{document.form2.gi.value=5
-document.form2.tai.value=13
-document.form2.sin.value=12}
-if(document.form1.naitomeaumare.value=="youhei")
-{document.form2.gi.value=7
-document.form2.tai.value=15
-document.form2.sin.value=8}
-if(document.form1.naitomeaumare.value=="keisensi")
-{document.form2.gi.value=11
-document.form2.tai.value=13
-document.form2.sin.value=6}
-if(document.form1.naitomeaumare.value=="sinkan")
-{document.form2.gi.value=6
-document.form2.tai.value=14
-document.form2.sin.value=10}
-if(document.form1.naitomeaumare.value=="madoukisi")
-{document.form2.gi.value=9
-document.form2.tai.value=9
-document.form2.sin.value=12}
-if(document.form1.naitomeaumare.value=="ginyuusizin")
-{document.form2.gi.value=8
-document.form2.tai.value=13
-document.form2.sin.value=9}
-if(document.form1.naitomeaumare.value=="rentaisi")
-{document.form2.gi.value=9
-document.form2.tai.value=14
-document.form2.sin.value=7}
-if(document.form1.naitomeaumare.value=="syasyu")
-{document.form2.gi.value=10
-document.form2.tai.value=10
-document.form2.sin.value=10}
-if(document.form1.naitomeaumare.value=="nobuse")
-{document.form2.gi.value=9
-document.form2.tai.value=12
-document.form2.sin.value=9}
-if(document.form1.naitomeaumare.value=="soureizyutusi")
-{document.form2.gi.value=6
-document.form2.tai.value=11
-document.form2.sin.value=13}
-if(document.form1.naitomeaumare.value=="mazintukai")
-{document.form2.gi.value=7
-document.form2.tai.value=12
-document.form2.sin.value=11}
-if(document.form1.naitomeaumare.value=="sinradousi")
-{document.form2.gi.value=8
-document.form2.tai.value=10
-document.form2.sin.value=12}
-if(document.form1.naitomeaumare.value=="kisyu")
-{document.form2.gi.value=10
-document.form2.tai.value=13
-document.form2.sin.value=7}
-if(document.form1.naitomeaumare.value=="renkinzyutusi")
-{document.form2.gi.value=11
-document.form2.tai.value=9
-document.form2.sin.value=10}
-}
-
-function rikanto(){
-if(document.form1.rikantoumare.value=="mittei")
-{document.form2.gi.value=13
-document.form2.tai.value=5
-document.form2.sin.value=7}
-if(document.form1.rikantoumare.value=="sensi")
-{document.form2.gi.value=10
-document.form2.tai.value=9
-document.form2.sin.value=6}
-if(document.form1.rikantoumare.value=="kentousi")
-{document.form2.gi.value=11
-document.form2.tai.value=7
-document.form2.sin.value=7}
-if(document.form1.rikantoumare.value=="keisensi")
-{document.form2.gi.value=12
-document.form2.tai.value=6
-document.form2.sin.value=7}
-if(document.form1.rikantoumare.value=="nobuse")
-{document.form2.gi.value=9
-document.form2.tai.value=8
-document.form2.sin.value=8}
-if(document.form1.rikantoumare.value=="ginyuusizin")
-{document.form2.gi.value=8
-document.form2.tai.value=9
-document.form2.sin.value=8}
-if(document.form1.rikantoumare.value=="syasyu")
-{document.form2.gi.value=11
-document.form2.tai.value=8
-document.form2.sin.value=6}
-if(document.form1.rikantoumare.value=="rentaisi")
-{document.form2.gi.value=10
-document.form2.tai.value=8
-document.form2.sin.value=7}
-if(document.form1.rikantoumare.value=="gakusya")
-{document.form2.gi.value=10
-document.form2.tai.value=7
-document.form2.sin.value=8}
-if(document.form1.rikantoumare.value=="sinkan")
-{document.form2.gi.value=9
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.rikantoumare.value=="sinradousi")
-{document.form2.gi.value=9
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.rikantoumare.value=="kisyu")
-{document.form2.gi.value=11
-document.form2.tai.value=8
-document.form2.sin.value=6}
-}
-
-function rirudoraken(){
-if(document.form1.rirudorakenumare.value=="nobuse")
-{document.form2.gi.value=6
-document.form2.tai.value=12
-document.form2.sin.value=7}
-if(document.form1.rirudorakenumare.value=="kentousi")
-{document.form2.gi.value=6
-document.form2.tai.value=13
-document.form2.sin.value=6}
-if(document.form1.rirudorakenumare.value=="sensi")
-{document.form2.gi.value=5
-document.form2.tai.value=14
-document.form2.sin.value=6}
-if(document.form1.rirudorakenumare.value=="syounin")
-{document.form2.gi.value=5
-document.form2.tai.value=11
-document.form2.sin.value=9}
-if(document.form1.rirudorakenumare.value=="sinkan")
-{document.form2.gi.value=4
-document.form2.tai.value=13
-document.form2.sin.value=8}
-if(document.form1.rirudorakenumare.value=="syasyu")
-{document.form2.gi.value=7
-document.form2.tai.value=12
-document.form2.sin.value=6}
-if(document.form1.rirudorakenumare.value=="keisensi")
-{document.form2.gi.value=6
-document.form2.tai.value=11
-document.form2.sin.value=8}
-if(document.form1.rirudorakenumare.value=="rentaisi")
-{document.form2.gi.value=5
-document.form2.tai.value=12
-document.form2.sin.value=8}
-if(document.form1.rirudorakenumare.value=="mahoutukai")
-{document.form2.gi.value=4
-document.form2.tai.value=12
-document.form2.sin.value=9}
-if(document.form1.rirudorakenumare.value=="youseitukai")
-{document.form2.gi.value=3
-document.form2.tai.value=12
-document.form2.sin.value=10}
-if(document.form1.rirudorakenumare.value=="mazintukai")
-{document.form2.gi.value=5
-document.form2.tai.value=12
-document.form2.sin.value=8}
-if(document.form1.rirudorakenumare.value=="sinradousi")
-{document.form2.gi.value=4
-document.form2.tai.value=12
-document.form2.sin.value=9}
-if(document.form1.rirudorakenumare.value=="kisyu")
-{document.form2.gi.value=6
-document.form2.tai.value=13
-document.form2.sin.value=6}
-if(document.form1.rirudorakenumare.value=="renkinzyutusi")
-{document.form2.gi.value=5
-document.form2.tai.value=13
-document.form2.sin.value=7}
-}
-
-function gurasuranna(){
-if(document.form1.gurasurannaumare.value=="nusutto")
-{document.form2.gi.value=13
-document.form2.tai.value=0
-document.form2.sin.value=12}
-if(document.form1.gurasurannaumare.value=="keisensi")
-{document.form2.gi.value=14
-document.form2.tai.value=1
-document.form2.sin.value=10}
-if(document.form1.gurasurannaumare.value=="nobuse")
-{document.form2.gi.value=12
-document.form2.tai.value=1
-document.form2.sin.value=12}
-if(document.form1.gurasurannaumare.value=="syasyu")
-{document.form2.gi.value=14
-document.form2.tai.value=0
-document.form2.sin.value=11}
-if(document.form1.gurasurannaumare.value=="syumizin")
-{document.form2.gi.value=12
-document.form2.tai.value=0
-document.form2.sin.value=13}
-if(document.form1.gurasurannaumare.value=="gakusya")
-{document.form2.gi.value=11
-document.form2.tai.value=1
-document.form2.sin.value=13}
-if(document.form1.gurasurannaumare.value=="kentousi")
-{document.form2.gi.value=14
-document.form2.tai.value=2
-document.form2.sin.value=9}
-if(document.form1.gurasurannaumare.value=="tabibito")
-{document.form2.gi.value=11
-document.form2.tai.value=2
-document.form2.sin.value=12}
-if(document.form1.gurasurannaumare.value=="mittei")
-{document.form2.gi.value=15
-document.form2.tai.value=0
-document.form2.sin.value=10}
-if(document.form1.gurasurannaumare.value=="ginyuusizin")
-{document.form2.gi.value=12
-document.form2.tai.value=0
-document.form2.sin.value=13}
-if(document.form1.gurasurannaumare.value=="kisyu")
-{document.form2.gi.value=13
-document.form2.tai.value=1
-document.form2.sin.value=11}
-if(document.form1.gurasurannaumare.value=="renkinzyutusi")
-{document.form2.gi.value=13
-document.form2.tai.value=0
-document.form2.sin.value=12}
-}
-
-function meria(){
-if(document.form1.meriaumare.value=="nobuse")
-{document.form2.gi.value=9
-document.form2.tai.value=8
-document.form2.sin.value=12}
-if(document.form1.meriaumare.value=="sinkan")
-{document.form2.gi.value=8
-document.form2.tai.value=8
-document.form2.sin.value=13}
-if(document.form1.meriaumare.value=="youseitukai")
-{document.form2.gi.value=8
-document.form2.tai.value=7
-document.form2.sin.value=14}
-if(document.form1.meriaumare.value=="mazyutusi")
-{document.form2.gi.value=8
-document.form2.tai.value=6
-document.form2.sin.value=15}
-if(document.form1.meriaumare.value=="soureizyutusi")
-{document.form2.gi.value=7
-document.form2.tai.value=6
-document.form2.sin.value=16}
-if(document.form1.meriaumare.value=="syasyu")
-{document.form2.gi.value=10
-document.form2.tai.value=7
-document.form2.sin.value=12}
-if(document.form1.meriaumare.value=="keisensi")
-{document.form2.gi.value=10
-document.form2.tai.value=8
-document.form2.sin.value=11}
-if(document.form1.meriaumare.value=="madousi")
-{document.form2.gi.value=8
-document.form2.tai.value=5
-document.form2.sin.value=16}
-if(document.form1.meriaumare.value=="ginyuusizin")
-{document.form2.gi.value=7
-document.form2.tai.value=7
-document.form2.sin.value=15}
-if(document.form1.meriaumare.value=="rentaisi")
-{document.form2.gi.value=9
-document.form2.tai.value=9
-document.form2.sin.value=11}
-if(document.form1.meriaumare.value=="mazintukai")
-{document.form2.gi.value=7
-document.form2.tai.value=7
-document.form2.sin.value=15}
-if(document.form1.meriaumare.value=="sinradousi")
-{document.form2.gi.value=6
-document.form2.tai.value=7
-document.form2.sin.value=16}
-if(document.form1.meriaumare.value=="kisyu")
-{document.form2.gi.value=8
-document.form2.tai.value=9
-document.form2.sin.value=12}
-if(document.form1.meriaumare.value=="renkinzyutusi")
-{document.form2.gi.value=9
-document.form2.tai.value=7
-document.form2.sin.value=13}
-}
-
-function thiensu(){
-if(document.form1.thiensuumare.value=="kisyu")
-{document.form2.gi.value=10
-document.form2.tai.value=11
-document.form2.sin.value=7}
-if(document.form1.thiensuumare.value=="kentousi")
-{document.form2.gi.value=9
-document.form2.tai.value=13
-document.form2.sin.value=6}
-if(document.form1.thiensuumare.value=="sensi")
-{document.form2.gi.value=8
-document.form2.tai.value=12
-document.form2.sin.value=8}
-if(document.form1.thiensuumare.value=="sinkan")
-{document.form2.gi.value=7
-document.form2.tai.value=12
-document.form2.sin.value=9}
-if(document.form1.thiensuumare.value=="mahoutukai")
-{document.form2.gi.value=6
-document.form2.tai.value=12
-document.form2.sin.value=10}
-if(document.form1.thiensuumare.value=="syasyu")
-{document.form2.gi.value=11
-document.form2.tai.value=12
-document.form2.sin.value=5}
-if(document.form1.thiensuumare.value=="mittei")
-{document.form2.gi.value=10
-document.form2.tai.value=10
-document.form2.sin.value=8}
-if(document.form1.thiensuumare.value=="mahousensi")
-{document.form2.gi.value=9
-document.form2.tai.value=11
-document.form2.sin.value=8}
-if(document.form1.thiensuumare.value=="youseitukai")
-{document.form2.gi.value=7
-document.form2.tai.value=11
-document.form2.sin.value=10}
-if(document.form1.thiensuumare.value=="gakusya")
-{document.form2.gi.value=8
-document.form2.tai.value=11
-document.form2.sin.value=9}
-if(document.form1.thiensuumare.value=="mazintukai")
-{document.form2.gi.value=7
-document.form2.tai.value=12
-document.form2.sin.value=9}
-if(document.form1.thiensuumare.value=="sinradousi")
-{document.form2.gi.value=8
-document.form2.tai.value=10
-document.form2.sin.value=10}
-if(document.form1.thiensuumare.value=="renkinzyutusi")
-{document.form2.gi.value=9
-document.form2.tai.value=11
-document.form2.sin.value=8}
-}
-
-function repurakan(){
-if(document.form1.repurakanumare.value=="keisensi")
-{document.form2.gi.value=13
-document.form2.tai.value=5
-document.form2.sin.value=5}
-if(document.form1.repurakanumare.value=="syasyu")
-{document.form2.gi.value=12
-document.form2.tai.value=6
-document.form2.sin.value=5}
-if(document.form1.repurakanumare.value=="mittei")
-{document.form2.gi.value=14
-document.form2.tai.value=4
-document.form2.sin.value=5}
-if(document.form1.repurakanumare.value=="youseitukai")
-{document.form2.gi.value=11
-document.form2.tai.value=4
-document.form2.sin.value=8}
-if(document.form1.repurakanumare.value=="renkinzyutusi")
-{document.form2.gi.value=11
-document.form2.tai.value=5
-document.form2.sin.value=7}
-if(document.form1.repurakanumare.value=="nobuse")
-{document.form2.gi.value=12
-document.form2.tai.value=5
-document.form2.sin.value=6}
-if(document.form1.repurakanumare.value=="syumizin")
-{document.form2.gi.value=13
-document.form2.tai.value=4
-document.form2.sin.value=6}
-if(document.form1.repurakanumare.value=="madoukisi")
-{document.form2.gi.value=12
-document.form2.tai.value=4
-document.form2.sin.value=7}
-if(document.form1.repurakanumare.value=="sinkan")
-{document.form2.gi.value=10
-document.form2.tai.value=5
-document.form2.sin.value=8}
-if(document.form1.repurakanumare.value=="madousi")
-{document.form2.gi.value=11
-document.form2.tai.value=3
-document.form2.sin.value=9}
-if(document.form1.repurakanumare.value=="mazintukai")
-{document.form2.gi.value=12
-document.form2.tai.value=4
-document.form2.sin.value=7}
-if(document.form1.repurakanumare.value=="sinradousi")
-{document.form2.gi.value=11
-document.form2.tai.value=4
-document.form2.sin.value=8}
-if(document.form1.repurakanumare.value=="kisyu")
-{document.form2.gi.value=13
-document.form2.tai.value=6
-document.form2.sin.value=4}
-}
-
-function aruvu(){
-if(document.form1.aruvuumare.value=="mittei")
-{document.form2.gi.value=12
-document.form2.tai.value=5
-document.form2.sin.value=8}
-if(document.form1.aruvuumare.value=="keisensi")
-{document.form2.gi.value=12
-document.form2.tai.value=6
-document.form2.sin.value=7}
-if(document.form1.aruvuumare.value=="mahoutukai")
-{document.form2.gi.value=9
-document.form2.tai.value=5
-document.form2.sin.value=11}
-if(document.form1.aruvuumare.value=="sinkan")
-{document.form2.gi.value=10
-document.form2.tai.value=6
-document.form2.sin.value=9}
-if(document.form1.aruvuumare.value=="gakusya")
-{document.form2.gi.value=10
-document.form2.tai.value=5
-document.form2.sin.value=10}
-if(document.form1.aruvuumare.value=="syasyu")
-{document.form2.gi.value=13
-document.form2.tai.value=4
-document.form2.sin.value=8}
-if(document.form1.aruvuumare.value=="kentousi")
-{document.form2.gi.value=11
-document.form2.tai.value=7
-document.form2.sin.value=7}
-if(document.form1.aruvuumare.value=="soureizyutusi")
-{document.form2.gi.value=9
-document.form2.tai.value=4
-document.form2.sin.value=12}
-if(document.form1.aruvuumare.value=="mazintukai")
-{document.form2.gi.value=9
-document.form2.tai.value=6
-document.form2.sin.value=10}
-if(document.form1.aruvuumare.value=="madoukisi")
-{document.form2.gi.value=9
-document.form2.tai.value=7
-document.form2.sin.value=9}
-}
-
-function wikuringu(){
-if(document.form1.wikuringuumare.value=="haiseki")
-{document.form2.gi.value=10
-document.form2.tai.value=7
-document.form2.sin.value=6}
-if(document.form1.wikuringuumare.value=="keisensi")
-{document.form2.gi.value=9
-document.form2.tai.value=8
-document.form2.sin.value=6}
-if(document.form1.wikuringuumare.value=="sensi")
-{document.form2.gi.value=8
-document.form2.tai.value=10
-document.form2.sin.value=5}
-if(document.form1.wikuringuumare.value=="sinkan")
-{document.form2.gi.value=7
-document.form2.tai.value=9
-document.form2.sin.value=7}
-if(document.form1.wikuringuumare.value=="mahoutukai")
-{document.form2.gi.value=7
-document.form2.tai.value=8
-document.form2.sin.value=8}
-if(document.form1.wikuringuumare.value=="rentaisi")
-{document.form2.gi.value=8
-document.form2.tai.value=8
-document.form2.sin.value=7}
-if(document.form1.wikuringuumare.value=="syasyu")
-{document.form2.gi.value=10
-document.form2.tai.value=8
-document.form2.sin.value=5}
-if(document.form1.wikuringuumare.value=="kentousi")
-{document.form2.gi.value=9
-document.form2.tai.value=9
-document.form2.sin.value=5}
-if(document.form1.wikuringuumare.value=="sinradousi")
-{document.form2.gi.value=7
-document.form2.tai.value=7
-document.form2.sin.value=9}
-if(document.form1.wikuringuumare.value=="mazintukai")
-{document.form2.gi.value=7
-document.form2.tai.value=8
-document.form2.sin.value=8}
-}
-
-function syadou(){
-if(document.form1.syadouumare.value=="nobuse")
-{document.form2.gi.value=15
-document.form2.tai.value=6
-document.form2.sin.value=6}
-if(document.form1.syadouumare.value=="kensi")
-{document.form2.gi.value=17
-document.form2.tai.value=7
-document.form2.sin.value=3}
-if(document.form1.syadouumare.value=="mittei")
-{document.form2.gi.value=16
-document.form2.tai.value=7
-document.form2.sin.value=4}
-if(document.form1.syadouumare.value=="kentousi")
-{document.form2.gi.value=14
-document.form2.tai.value=8
-document.form2.sin.value=5}
-if(document.form1.syadouumare.value=="sensi")
-{document.form2.gi.value=15
-document.form2.tai.value=9
-document.form2.sin.value=3}
-if(document.form1.syadouumare.value=="madoukisi")
-{document.form2.gi.value=17
-document.form2.tai.value=5
-document.form2.sin.value=5}
-if(document.form1.syadouumare.value=="syasyu")
-{document.form2.gi.value=18
-document.form2.tai.value=6
-document.form2.sin.value=3}
-if(document.form1.syadouumare.value=="rentaisi")
-{document.form2.gi.value=16
-document.form2.tai.value=6
-document.form2.sin.value=5}
-if(document.form1.syadouumare.value=="renkinzyutusi")
-{document.form2.gi.value=14
-document.form2.tai.value=8
-document.form2.sin.value=5}
-if(document.form1.syadouumare.value=="kisyu")
-{document.form2.gi.value=13
-document.form2.tai.value=7
-document.form2.sin.value=7}
-}
-
-function soreiyu(){
-if(document.form1.soreiyuumare.value=="sinkan")
-{document.form2.gi.value=9
-document.form2.tai.value=13
-document.form2.sin.value=4}
-if(document.form1.soreiyuumare.value=="keisensi")
-{document.form2.gi.value=12
-document.form2.tai.value=12
-document.form2.sin.value=2}
-if(document.form1.soreiyuumare.value=="sensi")
-{document.form2.gi.value=10
-document.form2.tai.value=15
-document.form2.sin.value=1}
-if(document.form1.soreiyuumare.value=="kentousi")
-{document.form2.gi.value=12
-document.form2.tai.value=14
-document.form2.sin.value=0}
-if(document.form1.soreiyuumare.value=="nobuse")
-{document.form2.gi.value=10
-document.form2.tai.value=13
-document.form2.sin.value=3}
-if(document.form1.soreiyuumare.value=="syasyu")
-{document.form2.gi.value=11
-document.form2.tai.value=14
-document.form2.sin.value=1}
-if(document.form1.soreiyuumare.value=="kisyu")
-{document.form2.gi.value=11
-document.form2.tai.value=13
-document.form2.sin.value=2}
-if(document.form1.soreiyuumare.value=="renkinzyutusi")
-{document.form2.gi.value=10
-document.form2.tai.value=11
-document.form2.sin.value=5}
-if(document.form1.soreiyuumare.value=="syumizin")
-{document.form2.gi.value=11
-document.form2.tai.value=11
-document.form2.sin.value=4}
-if(document.form1.soreiyuumare.value=="haiseki")
-{document.form2.gi.value=12
-document.form2.tai.value=11
-document.form2.sin.value=3}
-}
-
-function reroll(i){
-var kiyou="kiyou"+i
-var binsyou="binsyou"+i
-var kinryoku="kinryoku"+i
-var seimeiryoku="seimeiryoku"+i
-var tiryoku="tiryoku"+i
-var seisinryoku="seisinryoku"+i
-if(document.form1.syuzoku.value=="人間"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="エルフ"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="ドワーフ"){a=roll(2,6);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(1,0);f=roll(2,6);}
-if(document.form1.syuzoku.value=="タビット"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,0);e=roll(2,6);f=roll(2,0);}
-if(document.form1.syuzoku.value=="ルーンフォーク"){a=roll(2,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(1,0);}
-if(document.form1.syuzoku.value=="ナイトメア"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="リカント"){a=roll(1,0);b=roll(1,3);c=roll(2,0);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
-if(document.form1.syuzoku.value=="リルドラケン"){a=roll(1,0);b=roll(2,0);c=roll(2,0);d=roll(2,6);e=roll(1,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="グラスランナー"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(2,6);}
-if(document.form1.syuzoku.value=="メリア"){a=roll(1,0);b=roll(1,0);c=roll(1,0);d=roll(2,6);e=roll(1,0);f=roll(1,0);}
-if(document.form1.syuzoku.value=="ティエンス"){a=roll(2,0);b=roll(2,0);c=roll(1,0);d=roll(1,3);e=roll(2,0);f=roll(2,3);}
-if(document.form1.syuzoku.value=="レプラカーン"){a=roll(2,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="アルヴ"){a=roll(1,0);b=roll(1,3);c=roll(2,3);d=roll(2,0);e=roll(1,6);f=roll(1,0);}
-if(document.form1.syuzoku.value=="ウィークリング"){a=roll(2,0);b=roll(2,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="シャドウ"){a=roll(1,0);b=roll(1,0);c=roll(2,0);d=roll(2,0);e=roll(2,0);f=roll(2,0);}
-if(document.form1.syuzoku.value=="ソレイユ"){a=roll(1,0);b=roll(2,0);c=roll(1,6);d=roll(2,0);e=roll(1,0);f=roll(2,0);}
-document.form2[kiyou].value=a[0]
-document.form2[binsyou].value=b[0]
-document.form2[kinryoku].value=c[0]
-document.form2[seimeiryoku].value=d[0]
-document.form2[tiryoku].value=e[0]
-document.form2[seisinryoku].value=f[0]
-if(a[1]==1){document.form2[kiyou].style.backgroundColor="#ffc0cb"}else{document.form2[kiyou].style.backgroundColor="#ffffff"}
-if(b[1]==1){document.form2[binsyou].style.backgroundColor="#ffc0cb"}else{document.form2[binsyou].style.backgroundColor="#ffffff"}
-if(c[1]==1){document.form2[kinryoku].style.backgroundColor="#ffc0cb"}else{document.form2[kinryoku].style.backgroundColor="#ffffff"}
-if(d[1]==1){document.form2[seimeiryoku].style.backgroundColor="#ffc0cb"}else{document.form2[seimeiryoku].style.backgroundColor="#ffffff"}
-if(e[1]==1){document.form2[tiryoku].style.backgroundColor="#ffc0cb"}else{document.form2[tiryoku].style.backgroundColor="#ffffff"}
-if(f[1]==1){document.form2[seisinryoku].style.backgroundColor="#ffc0cb"}else{document.form2[seisinryoku].style.backgroundColor="#ffffff"}
-}
-
-function check(){
-if(document.form2.sentaku1.checked){sum(1)}
-if(document.form2.sentaku2.checked){sum(2)}
-if(document.form2.sentaku3.checked){sum(3)}
-}
-
-function sum(i){
-var kiyou="kiyou"+i
-var binsyou="binsyou"+i
-var kinryoku="kinryoku"+i
-var seimeiryoku="seimeiryoku"+i
-var tiryoku="tiryoku"+i
-var seisinryoku="seisinryoku"+i
-a=Number(document.form2.gi.value)+Number(document.form2[kiyou].value)+Number(document.form2.kiyouplus.value)
-b=Number(document.form2.gi.value)+Number(document.form2[binsyou].value)+Number(document.form2.binsyouplus.value)
-c=Number(document.form2.tai.value)+Number(document.form2[kinryoku].value)+Number(document.form2.kinryokuplus.value)
-d=Number(document.form2.tai.value)+Number(document.form2[seimeiryoku].value)+Number(document.form2.seimeiryokuplus.value)
-e=Number(document.form2.sin.value)+Number(document.form2[tiryoku].value)+Number(document.form2.tiryokuplus.value)
-f=Number(document.form2.sin.value)+Number(document.form2[seisinryoku].value)+Number(document.form2.seisinryokuplus.value)
-document.form2.kiyoucopy.value=a
-document.form3.kiyou.value=a
-document.form2.binsyoucopy.value=b
-document.form3.binsyou.value=b
-document.form2.kinryokucopy.value=c
-document.form3.kinryoku.value=c
-document.form2.seimeiryokucopy.value=d
-document.form3.seimeiryoku.value=d
-document.form2.tiryokucopy.value=e
-document.form3.tiryoku.value=e
-document.form2.seisinryokucopy.value=f
-document.form3.seisinryoku.value=f
-}
-
-function sub(){document.getElementById("form2").onsubmit=false}
+	function sub(){document.getElementById("form2").onsubmit=false}
 </script>
 </head>
 
-<body  onload="uketori()">
+<body  onload="load();uketori()">
 <form name="form1">
 種族　<select name="syuzoku" id="syuzoku" onchange="syuzokukettei();check()">
-	<option value="empty"></option>
-	<option value="人間">人間</option>
-	<option value="エルフ">エルフ</option>
-	<option value="ドワーフ">ドワーフ</option>
-	<option value="タビット">タビット</option>
-	<option value="ルーンフォーク">ルーンフォーク</option>
-	<option value="ナイトメア">ナイトメア</option>
-	<option value="リカント">リカント</option>
-	<option value="リルドラケン">リルドラケン</option>
-	<option value="グラスランナー">グラスランナー</option>
-	<option value="メリア">メリア</option>
-	<option value="ティエンス">ティエンス</option>
-	<option value="レプラカーン">レプラカーン</option>
-	<option value="アルヴ">アルヴ</option>
-	<option value="ウィークリング">ウィークリング</option>
-	<option value="シャドウ">シャドウ</option>
-	<option value="ソレイユ">ソレイユ</option>
 </select>
 
 <select name="syuzoku2" hidden onchange="wikuup();check()">
@@ -1169,288 +213,7 @@ function sub(){document.getElementById("form2").onsubmit=false}
 	<option value="ミノタウロス">ミノタウロス</option>
 </select>
 
-<div id="ningenborn" hidden>
-生まれ　<select name="ningenumare" onchange="ningen();check()">
-	<option value="empty"></option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="ippanzin">一般人</option>
-	<option value="youhei">傭兵</option>
-	<option value="sinkan">神官</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="syasyu">射手</option>
-	<option value="kensi">剣士</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sensi">戦士</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="kazin">歌人</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-	<option value="boukensya">冒険者</option>
-</select>
-</div>
-<div id="eruhuborn" hidden>
-生まれ　<select name="eruhuumare" onchange="eruhu();check()">
-	<option value="empty"></option>
-	<option value="kensi">剣士</option>
-	<option value="yakusi">薬師</option>
-	<option value="sinkan">神官</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="syasyu">射手</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="mittei">密偵</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-</select>
-</div>
-<div id="dowahuborn" hidden>
-生まれ　<select name="dowahuumare" onchange="dowahu();check()">
-	<option value="empty"></option>
-	<option value="syasyu">射手</option>
-	<option value="sensi">戦士</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sinkan">神官</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="gakusya">学者</option>
-	<option value="nobuse">野伏</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="tabittoborn" hidden>
-生まれ　<select name="tabittoumare" onchange="tabitto();check()">
-	<option value="empty"></option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="gakusya">学者</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="madousi">魔導士</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="yakusi">薬師</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="runfokuborn" hidden>
-生まれ　<select name="runfokuumare" onchange="runfoku();check()">
-	<option value="empty"></option>
-	<option value="gakusya">学者</option>
-	<option value="syasyu">射手</option>
-	<option value="sensi">戦士</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="mittei">密偵</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="naitomeaborn" hidden>
-生まれ　<select name="naitomeaumare" onchange="naitomea();check()">
-	<option value="empty"></option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="youhei">傭兵</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="sinkan">神官</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="syasyu">射手</option>
-	<option value="nobuse">野伏</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="rikantoborn" hidden>
-生まれ　<select name="rikantoumare" onchange="rikanto();check()">
-	<option value="empty"></option>
-	<option value="mittei">密偵</option>
-	<option value="sensi">戦士</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="nobuse">野伏</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="syasyu">射手</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="gakusya">学者</option>
-	<option value="sinkan">神官</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-</select>
-</div>
-<div id="rirudorakenborn" hidden>
-生まれ　<select name="rirudorakenumare" onchange="rirudoraken();check()">
-	<option value="empty"></option>
-	<option value="nobuse">野伏</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sensi">戦士</option>
-	<option value="syounin">商人</option>
-	<option value="sinkan">神官</option>
-	<option value="syasyu">射手</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="mahoutukai">魔法使い</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="gurasurannaborn" hidden>
-生まれ　<select name="gurasurannaumare" onchange="gurasuranna();check()">
-	<option value="empty"></option>
-	<option value="nusutto">盗っ人</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="nobuse">野伏</option>
-	<option value="syasyu">射手</option>
-	<option value="syumizin">趣味人</option>
-	<option value="gakusya">学者</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="tabibito">旅人</option>
-	<option value="mittei">密偵</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="meriaborn" hidden>
-生まれ　<select name="meriaumare" onchange="meria();check()">
-	<option value="empty"></option>
-	<option value="nobuse">野伏</option>
-	<option value="sinkan">神官</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="mazyutusi">魔術師</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="syasyu">射手</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="madousi">魔導士</option>
-	<option value="ginyuusizin">吟遊詩人</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="thiensuborn" hidden>
-生まれ　<select name="thiensuumare" onchange="thiensu();check()">
-	<option value="empty"></option>
-	<option value="kisyu">騎手</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sensi">戦士</option>
-	<option value="sinkan">神官</option>
-	<option value="mahoutukai">魔法使い</option>
-	<option value="syasyu">射手</option>
-	<option value="mittei">密偵</option>
-	<option value="mahousensi">魔法戦士</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="gakusya">学者</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="renkinzyutusi">錬金術師</option>
-</select>
-</div>
-<div id="repurakanborn" hidden>
-生まれ　<select name="repurakanumare" onchange="repurakan();check()">
-	<option value="empty"></option>
-	<option value="keisensi">軽戦士</option>
-	<option value="syasyu">射手</option>
-	<option value="mittei">密偵</option>
-	<option value="youseitukai">妖精使い</option>
-	<option value="renkinzyutusi">錬金術師</option>
-	<option value="nobuse">野伏</option>
-	<option value="syumizin">趣味人</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="sinkan">神官</option>
-	<option value="madousi">魔導士</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="kisyu">騎手</option>
-</select>
-</div>
-<div id="aruvuborn" hidden>
-生まれ　<select name="aruvuumare" onchange="aruvu();check()">
-	<option value="empty"></option>
-	<option value="mittei">密偵</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="mahoutukai">魔法使い</option>
-	<option value="sinkan">神官</option>
-	<option value="gakusya">学者</option>
-	<option value="syasyu">射手</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="soureizyutusi">操霊術師</option>
-	<option value="mazintukai">魔神使い</option>
-	<option value="madoukisi">魔動機師</option>
-</select>
-</div>
-<div id="wikuringuborn" hidden>
-生まれ　<select name="wikuringuumare" onchange="wikuringu();check()">
-	<option value="empty"></option>
-	<option value="haiseki">斥候</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="sensi">戦士</option>
-	<option value="sinkan">神官</option>
-	<option value="mahoutukai">魔法使い</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="syasyu">射手</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sinradousi">森羅導師</option>
-	<option value="mazintukai">魔神使い</option>
-</select>
-</div>
-<div id="syadouborn" hidden>
-生まれ　<select name="syadouumare" onchange="syadou();check()">
-	<option value="empty"></option>
-	<option value="nobuse">野伏</option>
-	<option value="kensi">剣士</option>
-	<option value="mittei">密偵</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="sensi">戦士</option>
-	<option value="madoukisi">魔動機師</option>
-	<option value="syasyu">射手</option>
-	<option value="rentaisi">錬体士</option>
-	<option value="renkinzyutusi">錬金術師</option>
-	<option value="kisyu">騎手</option>
-</select>
-</div>
-<div id="soreiyuborn" hidden>
-生まれ　<select name="soreiyuumare" onchange="soreiyu();check()">
-	<option value="empty"></option>
-	<option value="sinkan">神官</option>
-	<option value="keisensi">軽戦士</option>
-	<option value="sensi">戦士</option>
-	<option value="kentousi">拳闘士</option>
-	<option value="nobuse">野伏</option>
-	<option value="syasyu">射手</option>
-	<option value="kisyu">騎手</option>
-	<option value="renkinzyutusi">錬金術師</option>
-	<option value="syumizin">趣味人</option>
-	<option value="haiseki">斥候</option>
-</select>
-</div>
+<div id="bornlist">生まれ　</div>
 
 </form>
 <form name="form2" id="form2" onsubmit="return false" method="get">
