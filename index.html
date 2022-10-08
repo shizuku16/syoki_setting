@@ -12,6 +12,7 @@ color:#000000;}
 }
 
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/JavaScript">
 	var nouryokulist=["kiyou","binsyou","kinryoku","seimeiryoku","tiryoku","seisinryoku"]
 	var syuzokutable=["ningen","eruhu","dowahu","tabitto","runfoku","naitomea","rikanto","rirudoraken","gurasuranna","meria","thiensu","repurakan","aruvu","wikuringu","syadou","soreiyu"]
@@ -81,15 +82,15 @@ color:#000000;}
 		var s=0
 
 		for(s=0;s<6;s++){
-			document.getElementById(`yuusya${s+1}`).value=document.getElementById(`${nouryoku[s]}copy`).value
+			document.getElementById(`yuusya${s+1}`).value=document.getElementById(`${nouryokulist[s]}copy`).value
 			if(document.getElementById(`${nouryokulist[s]}glow`).checked){
 				if(i==5)break
-				document.getElementById(`nouryoku${i}`).value=nouryoku[s]
+				document.getElementById(`nouryoku${i}`).value=nouryokulist[s]
 				i++
 			}
 		}
 		i=0
-		for(s=0;s<6;s++){if(document.getElementById(`${nouryoku[s]}glow`).checked) i++}
+		for(s=0;s<6;s++){if(document.getElementById(`${nouryokulist[s]}glow`).checked) i++}
 		if(i!=4){
 		alert("成長させる能力を4つ選んでください。")
 		return false
