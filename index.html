@@ -7,6 +7,9 @@ table{border-collapse:collapse;}
 input[type=radio]{width:15px;height:15px;}:disabled{
 -webkit-appearance:none;	
 color:#000000;}
+#number {
+  width: 3em;
+}
 
 </style>
 <script type="text/JavaScript">
@@ -36,7 +39,7 @@ color:#000000;}
 		var funcstr="document.form2.gi.disabled=true;\ndocument.form2.tai.disabled=true;\ndocument.form2.sin.disabled=true;\n"
 		for(j=1;j<table[i].length;j++){
 			funcstr+="if(document.form1."+table[i][0]+"umare.value==\""+table[i][j][0]+"\"){document.form2.gi.value="+table[i][j][2]+";document.form2.tai.value="+table[i][j][3]+";document.form2.sin.value="+table[i][j][4]+";"
-			if(i==0&&j==table[i].length-1) funcstr+="document.form2.gi.disabled=false;document.form2.tai.disabled=false;document.form2.sin.disabled=false;"
+			if(table[i][j][0]=="boukensya") funcstr+="document.form2.gi.disabled=false;document.form2.tai.disabled=false;document.form2.sin.disabled=false;"
 			funcstr+="}\n"
 		}
 		funclist[table[i][0]]=new Function(funcstr)
@@ -221,9 +224,9 @@ color:#000000;}
 <table id="nouryokuti">
 <tr>
 <td></td>
-<td colspan="2">技：<input type="text" name="gi" value="0" disabled size="2"></td>
-<td colspan="2">体：<input type="text" name="tai" value="0" disabled size="2"></td>
-<td colspan="2">心：<input type="text" name="sin" value="0" disabled size="2"></td>
+<td colspan="2">技：<input type="number" name="gi" value="0" min="0" disabled id="number"></td>
+<td colspan="2">体：<input type="number" name="tai" value="0" min="0" disabled id="number"></td>
+<td colspan="2">心：<input type="number" name="sin" value="0" min="0" disabled id="number"></td>
 </tr>
 <tr>
 <td></td>
